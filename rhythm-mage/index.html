@@ -1,0 +1,879 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>節奏法師・音樂廚房</title>
+<link rel="icon" type="image/png" sizes="64x64" href="assets/favicon.png">
+<meta property="og:title" content="節奏法師・音樂廚房">
+<meta property="og:description" content="跟著原創音樂玩五關料理挑戰。用 J／K 煎蛋、切菜、抹醬和擺盤，看看客人吃完後的反應！支援鍵盤與手機觸控。">
+<meta property="og:type" content="website">
+<!-- 部署後將下方的範例網域換成你的實際網域，然後移除這組註解符號。
+<meta property="og:url" content="https://example.com/">
+<meta property="og:image" content="https://example.com/assets/share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="節奏法師・音樂廚房，紫色法師和煎蛋平底鍋的分享封面">
+-->
+<style>
+:root{--ink:#343744;--muted:#8b8892;--orange:#e88753;--cream:#faf7f1}*{box-sizing:border-box}body{margin:0;overflow:hidden;background:#eee9e1;color:var(--ink);font:15px 'Microsoft JhengHei',sans-serif}button,input{font:inherit}button{cursor:pointer;border:0;color:inherit}button:focus-visible,input:focus-visible{outline:3px solid #9068bb;outline-offset:4px}button:hover{filter:brightness(.96)}[hidden]{display:none!important}#app{height:100dvh;min-height:500px;display:grid;grid-template-rows:82px 1fr 44px;max-width:1800px;margin:auto;padding:0 4vw}header{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #dcd5cc}.brand{font-weight:900;font-size:19px;letter-spacing:2px}.brand span{display:inline-grid;place-items:center;background:#343744;color:#fff5dd;width:33px;height:33px;border-radius:50%;margin-right:10px}.edition{font-size:10px;letter-spacing:3px;color:var(--muted);margin-left:18px}.nav{display:flex;gap:18px;align-items:center}.nav small{color:var(--muted);font-size:11px}.menu{border:1px solid #d8d1c7;background:transparent;border-radius:50%;width:43px;height:43px;font-size:23px}.main{position:relative;min-height:0;display:grid;grid-template-columns:330px 1fr;gap:3vw;align-items:center}.intro{z-index:2}.eyebrow{font-size:11px;letter-spacing:3px;font-weight:700;color:#b4744d}.intro h1{font-size:clamp(38px,4.2vw,66px);letter-spacing:-2px;line-height:1.22;margin:22px 0}.intro h1 span{color:var(--orange)}.desc{color:#817d80;line-height:1.9;font-size:14px;max-width:285px}.tags{display:flex;gap:8px;margin:24px 0 32px}.tags span{border:1px solid #d9d0c5;border-radius:5px;font-size:11px;padding:7px 9px}.primary{background:var(--ink);color:#fff9ef;padding:17px 26px;border-radius:12px;font-weight:700;box-shadow:0 5px 0 #242630;display:flex;align-items:center;justify-content:space-between;gap:30px;min-width:250px}.primary span{font-size:19px;color:#ffc48f}.sub{margin-top:15px;font-size:11px;color:#908991;letter-spacing:1px}.scene{position:relative;height:min(72vh,720px);min-height:360px;background:#f7f3eb;border-radius:28px;border:1px solid #e2dbd1;overflow:hidden;box-shadow:0 18px 50px #6e574b0d}.scene canvas{width:100%;height:100%;display:block}.scene-label{position:absolute;left:27px;top:23px;font-size:10px;letter-spacing:2px;color:#9f8e80}.scene-label b{display:block;color:#645a53;font-size:13px;margin-top:8px;letter-spacing:1px}.preview-badge{position:absolute;right:23px;top:22px;background:#fffaf0d9;padding:8px 12px;border-radius:20px;font-size:10px;color:#927c68}.home-caption{position:absolute;bottom:27px;left:0;right:0;text-align:center;font-size:12px;color:#8f8275}.home-caption b{color:#494443}.footer{display:flex;justify-content:space-between;align-items:center;color:#98918a;font-size:10px;letter-spacing:1px}.play .main{grid-template-columns:1fr}.play .intro{display:none}.play .scene{height:100%;max-height:none;margin:17px 0;border-radius:20px}.play .main{padding:18px 0}.play .home-only{display:none}.hud{position:absolute;top:20px;left:25px;right:25px;display:flex;justify-content:space-between;align-items:flex-start}.hud-title small{font-size:10px;letter-spacing:2px;color:#928376}.hud-title h2{font-size:21px;margin:8px 0}.metrics{display:flex;gap:30px}.metrics small{display:block;color:#968576;font-size:9px;letter-spacing:2px}.metrics b{display:block;margin-top:4px;font-size:25px;font-variant-numeric:tabular-nums}.pause{background:#eee7dc;border-radius:10px;padding:12px 17px}.progress{position:absolute;top:0;left:0;right:0;height:4px;background:#e7dfd2}.progress i{display:block;height:100%;width:0;background:#dda66a}.rhythm{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);width:min(720px,75%);text-align:center}.rail{height:70px;background:#343744;border-radius:15px;position:relative;overflow:hidden;box-shadow:0 6px 0 #dad2c8}.rail:after{content:'';position:absolute;left:90px;top:9px;width:3px;height:52px;background:#f2c485}.target{position:absolute;left:65px;top:10px;width:52px;height:52px;border:2px solid #f6cc91;border-radius:50%;background:#ffffff12}.note{position:absolute;top:20px;width:32px;height:32px;border-radius:50%;background:#ffcf7d;border:6px solid #fff5df;box-shadow:0 0 13px #f6bf5a55}.rail-label{position:absolute;left:12px;top:29px;color:#ccc3b8;font-size:9px}.rhythm-hint{margin-top:15px;font-size:11px;color:#85796c;display:flex;justify-content:center;gap:12px;align-items:center}kbd{border:1px solid #d3c9bb;border-bottom:3px solid #c9bcab;padding:4px 15px;border-radius:5px;background:#fffaf0;color:#514d49;font:11px inherit}.judge{position:absolute;top:24%;left:50%;transform:translateX(-50%);text-align:center;pointer-events:none;color:#cd8846;white-space:nowrap}.judge strong{display:block;font:800 32px Georgia,serif;letter-spacing:3px}.judge small{display:block;font-size:11px;margin-top:7px;color:#8c7d71}.flash{animation:pop .24s ease-out}@keyframes pop{from{transform:translateX(-50%) scale(1.28)}to{transform:translateX(-50%) scale(1)}}dialog{border:1px solid #ded4c5;border-radius:24px;padding:32px;background:var(--cream);color:var(--ink);width:520px;max-width:90vw;box-shadow:0 30px 100px #302b3033}dialog::backdrop{background:#34313c66;backdrop-filter:blur(7px)}.dialog-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}.dialog-top h2{font-size:23px;margin:0}.close{width:34px;height:34px;border-radius:50%;background:#eae3d8;font-size:22px}.tabs{display:flex;gap:7px;margin-bottom:24px}.tabs button{border-radius:7px;padding:9px 13px;background:#e9e2d7;font-size:12px}.tabs button.active{background:#343744;color:white}.panel p{line-height:1.9;color:#83766c;font-size:14px}.panel h3{font-size:18px}.instruction{display:flex;gap:15px;align-items:center;padding:12px 0;border-bottom:1px solid #e9e1d5}.instruction .icon{font-size:25px;width:38px;text-align:center}.instruction p{margin:0;font-size:13px}.instruction b{display:block;color:#4c443e}.dialog-actions{display:flex;gap:12px;margin-top:24px}.secondary{border-radius:10px;padding:13px 20px;background:#e9e2d6}.result-number{font-size:64px;font-weight:800;margin:12px 0;color:#db9460}.result-grid{display:flex;justify-content:space-between;border-top:1px solid #e2d8c9;border-bottom:1px solid #e2d8c9;padding:20px 0}.result-grid b{display:block;font-size:23px}.result-grid small{font-size:10px;color:#99877a}.setting{display:flex;align-items:center;justify-content:space-between;padding:15px 0}.small-note{font-size:11px!important}#count{position:absolute;inset:0;display:grid;place-items:center;background:#faf5e960;font-size:82px;font-weight:900;color:#49434b;pointer-events:none} @media(max-width:1100px){.main{grid-template-columns:270px 1fr}.intro h1{font-size:43px}.edition{display:none}.scene{height:70vh}.metrics{gap:17px}}@media(max-height:700px){#app{grid-template-rows:64px 1fr 30px}.intro h1{font-size:40px;margin:14px 0}.tags{margin:16px 0}.scene{height:76vh;min-height:320px}.desc{font-size:12px}.rhythm{bottom:12px}.rail{height:62px}.rhythm-hint{margin-top:10px}}
+
+.level-nav{display:flex;gap:7px;margin:22px 0 12px}.level-nav button{height:42px;width:42px;border-radius:11px;background:#e5ded3;font-weight:bold;border:1px solid transparent}.level-nav button.active{background:#343744;color:#fff5df}.level-nav button.done:after{content:'·';color:#d49b61}.level-note{font-size:11px;color:#998a7b;min-height:18px}.intro h1{font-size:clamp(36px,3.7vw,57px);margin:16px 0}.tags{margin:18px 0 24px}.dual .rail{height:50px;border-radius:10px}.dual .rail+.rail{margin-top:8px;background:#3c4052}.dual .rail:after{height:36px;top:7px}.dual .target{width:38px;height:38px;top:6px;left:72px}.dual .note{top:12px;width:27px;height:27px;border-width:5px}.dual .rail-label{top:18px;left:17px;font-size:12px}.dual #rail2 .target{border-color:#b8cfa2}.dual #rail2:after{background:#b8cfa2}.dual #notes2 .note{background:#a6c78f;border-color:#eef5e5}.dual .judge{top:20%}.stage-task{position:absolute;left:25px;top:100px;color:#998371;font-size:12px}.level-cards{display:grid;grid-template-columns:1fr 1fr;gap:9px}.level-cards button{text-align:left;padding:13px;background:#eee6da;border-radius:10px}.level-cards b{display:block;margin-bottom:7px}.level-cards small{font-size:10px;color:#9b8976}.level-cards button:last-child{grid-column:span 2}.result-grid{gap:10px}.dialog-actions{flex-wrap:wrap}.dialog-actions .primary{min-width:180px}.level-cleared{color:#8b9b71}@media(max-height:740px){.intro h1{font-size:36px}.intro .tags{margin:12px 0 16px}.level-nav{margin-top:14px}.scene{min-height:300px}.intro .sub{margin-top:12px}.intro .desc{line-height:1.7}} 
+.start-key{display:inline-flex;align-items:center;justify-content:center;min-width:160px;padding:12px 22px;border:2px solid #b8aa96;border-bottom:5px solid #aa9a83;border-radius:10px;background:#fff9ee;color:#514a42;font-weight:700;letter-spacing:1px;box-shadow:0 3px 0 #ddd2c2}.start-key small{font-size:10px;letter-spacing:2px;margin-left:12px;color:#98846d}.rhythm-hint kbd{font-family:inherit;font-size:13px;font-weight:700;padding:8px 22px;border:2px solid #c9b99f;border-bottom:5px solid #b6a285;border-radius:9px;background:#fffaf0}.intro .sub{letter-spacing:0}.home-caption b{display:inline-block;border:2px solid #baa78c;border-bottom:4px solid #a99577;background:#fff7e8;border-radius:9px;padding:10px 20px}.home-caption{bottom:18px}@media(max-height:740px){.start-key{padding:8px 14px}.rhythm-hint kbd{padding:5px 16px}.home-caption b{padding:7px 14px}}:root{--ink:#49365d}body{background:#fff0dd}.primary{background:#7952ad;box-shadow:0 5px 0 #55337f}.scene{border-color:#dfb678}.rail{background:#524169}.stage-task{background:#fff6e8e8;padding:9px 12px;border-radius:10px;color:#694835;max-width:75%;line-height:1.5}.preview-badge{background:#ffce66;color:#62431e}/* V9: scene-first desktop chapter selector */
+#app{grid-template-rows:70px 1fr 0;padding:0 3vw}.footer,.edition,.nav small,.intro .eyebrow,.intro .desc,.intro .tags,#levelNote,.scene-label,.preview-badge,.home-caption,#stageTask{display:none!important}.main{grid-template-columns:250px minmax(0,1fr);gap:28px;padding:20px 0;align-items:stretch}.intro{display:flex;flex-direction:column;justify-content:center}.intro h1{font-size:32px;line-height:1.2;margin:0 0 20px;letter-spacing:-1px}.level-nav{display:flex;flex-direction:column;gap:9px;margin:0 0 22px}.level-nav button{display:flex;align-items:center;gap:14px;width:100%;height:54px;text-align:left;padding:0 15px;border-radius:13px;font-size:16px;background:#fff8ec;border:1px solid #e1ccae}.level-nav button.active{background:#7952ad;color:white;box-shadow:0 4px 0 #543479}.chapter-num{font-size:13px;opacity:.65}.level-nav button.done:after{content:'✓';margin-left:auto}.scene{height:100%;min-height:0;border-radius:24px}.primary{min-width:0;width:100%;justify-content:center;gap:20px}.intro .sub{margin:16px 0 0;text-align:center}.intro .sub>span:last-child,.start-key small{display:none}.start-key{min-width:0;padding:8px 18px;font-size:13px}.play .main{padding:18px 0}.play .scene{margin:0}.judge small{min-height:14px}@media(max-height:740px){#app{grid-template-rows:60px 1fr 0}.main{padding:15px 0;gap:20px}.intro h1{font-size:27px;margin-bottom:14px}.level-nav{gap:7px;margin-bottom:16px}.level-nav button{height:46px;font-size:15px}.intro .sub{margin-top:12px}.scene{height:100%}}
+.hold-note{background:#f9bd55;border-radius:14px!important;border-color:#ffe7ab!important}.order-ticket{position:absolute;top:98px;left:25px;background:#fffaf0ed;border:2px solid #efbb72;border-radius:15px;padding:13px 18px;display:flex;gap:13px;align-items:center;max-width:520px;box-shadow:0 5px 15px #50322212}.order-ticket .portrait{font-size:32px}.order-ticket b{display:block;font-size:17px}.order-ticket small{display:block;color:#866b55;font-size:12px;margin-top:5px}.order-meter{height:5px;background:#eadcc8;margin-top:9px;border-radius:6px;overflow:hidden}.order-meter i{display:block;height:100%;background:#a083d0;transition:width .15s}.intro h1{font-size:29px}.hud-title h2{font-size:20px}.scene-label,.home-caption{display:none!important}@media(max-height:740px){.order-ticket{top:88px;padding:9px 13px}.order-ticket b{font-size:15px}}.note{display:grid;place-items:center;overflow:visible;font-style:normal}.note span{font:800 12px Arial,sans-serif;color:#44394e;position:absolute;left:2px;top:1px}.space-note{background:#ff9d67!important;border-color:#fff0ce!important}.hold-note{background:#c9a6f0!important;border-color:#eddbff!important}.hold-note span{left:3px}.rail-label{font-weight:bold}.rhythm-hint{font-size:12px}.dual .rail{height:43px}.dual .target{width:32px;height:32px;top:5px;left:75px}.dual .rail:after{height:31px;top:6px}.dual .note{top:9px}.dual .rail-label{top:15px}.dual .rail+.rail{margin-top:6px}#rail3{background:#634b42}#rail3 .target{border-color:#ffb377}#rail3:after{background:#ffb377}.rhythm{bottom:12px}.rhythm-hint{margin-top:9px}#rail3 .rail-label{font-size:9px;left:11px}.order-ticket{max-width:480px}.dual .rail{height:50px}.dual .target{width:38px;height:38px;left:72px;top:6px}.dual .rail:after{height:36px;top:7px}.dual .note{top:12px}.dual .rail-label{top:18px}.rhythm{bottom:20px}.order-side{display:none}.play .main{grid-template-columns:220px minmax(0,1fr);gap:20px}.play .order-side{display:flex;flex-direction:column;justify-content:center;gap:20px;min-width:0}.side-heading{font-size:21px;font-weight:bold;color:#7952ad}.order-side .order-ticket{position:static;max-width:none;width:100%;padding:16px 13px;gap:9px;box-shadow:none}.order-side .order-ticket b{font-size:16px;line-height:1.6}.order-side .order-ticket small{font-size:12px;line-height:1.6}.order-side .portrait{font-size:26px}.order-side .judge{position:static;transform:none;white-space:normal;text-align:left}.order-side .judge strong{font-size:22px;letter-spacing:1px}.order-side .judge small{line-height:1.7}.order-side .flash{animation:sideFeedback .2s ease-out}@keyframes sideFeedback{from{opacity:.4}to{opacity:1}}.serving-view .hud,.serving-view .rhythm,.serving-view .judge{visibility:hidden}@media(max-height:740px){.play .main{grid-template-columns:195px minmax(0,1fr);gap:15px}}
+.soundtrack-card{margin:14px 0 0;padding:11px 12px;background:#fff8ed;border:1px solid #dfc9aa;border-radius:12px;color:#493366}
+.soundtrack-card p{margin:0;font-size:12px;line-height:1.45}.soundtrack-card strong{display:block;font-size:14px}
+.soundtrack-card .song-actions{display:flex;gap:6px;margin-top:7px}.song-actions button{min-height:44px;padding:0 9px;border-radius:8px;background:#eee2fa;color:#4e2c70;font-size:12px;font-weight:700}
+.song-actions button:hover,.song-actions button:focus-visible{background:#dfcaef}.soundtrack-card #songStatus:empty,.play .soundtrack-card{display:none}
+.spread-chances{padding:9px 12px;border:1px solid #e1ccae;border-radius:12px;background:#fff8ec;color:#52366f;font-size:13px;font-weight:bold}
+.spread-chance-dots{display:flex;gap:6px;margin-top:7px}
+.spread-chance-dots i{height:6px;flex:1;border-radius:8px;background:#8962b5}
+.spread-chance-dots i.used{background:#e4d8e8}
+.touch-controls{display:none}
+@media (any-pointer:coarse), (max-width:760px){
+  .touch-controls{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0 0}
+  .touch-key{min-height:56px;border-radius:12px;background:#5d407f;color:#fffaf0;font-size:24px;font-weight:900;box-shadow:inset 0 -4px #412a5d;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+  .touch-key[data-key="KeyK"]{background:#9a4d34;box-shadow:inset 0 -4px #733620}
+  .touch-key.is-pressed{background:#3e2a56;box-shadow:inset 0 3px 0 #2b1a3f}
+  .touch-key[data-key="KeyK"].is-pressed{background:#6c301e;box-shadow:inset 0 3px 0 #501e10}
+}
+@media (max-width:760px), (any-pointer:coarse) and (max-height:550px){
+  body{overflow:auto}
+  #app{height:auto;min-height:100dvh;grid-template-rows:52px 1fr 0;padding:0 max(10px,env(safe-area-inset-right)) 0 max(10px,env(safe-area-inset-left))}
+  #app .main{grid-template-columns:minmax(0,1fr);gap:12px;padding:10px 0}
+  #app:not(.play) .scene{height:clamp(170px,29dvh,270px);min-height:0}
+  .intro h1{font-size:23px;margin:0 0 10px}
+  .level-nav{gap:6px;margin-bottom:12px}
+  .level-nav button{height:44px}
+  .intro .sub{display:none}
+  #app.play{height:100dvh;min-height:0}
+  #app.play .main{grid-template-rows:auto minmax(0,1fr);gap:6px;padding:6px 0 max(6px,env(safe-area-inset-bottom))}
+  .play .order-side{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 6px;align-items:center}
+  .play .side-heading,.play .order-ticket .portrait,.play .order-meter{display:none}
+  .play .order-side .order-ticket{grid-column:1/-1;padding:4px 8px;border-width:1px;border-radius:9px}
+  .play .order-side .order-ticket b{font-size:12px;line-height:1.3}
+  .play .order-side .order-ticket small,.play .order-side .judge small{margin:1px 0;font-size:11px;line-height:1.25}
+  .play .order-side .judge{grid-column:1;grid-row:2;min-width:0}
+  .play .order-side .judge strong{font-size:14px}
+  .play .spread-chances{grid-column:2;grid-row:2;padding:4px 6px;font-size:10px}
+  .play .spread-chance-dots{margin-top:3px}
+  #app.play .scene{border-radius:14px;min-height:0}
+  .play:not(.serving-view) .scene canvas{height:calc(100% - 153px)}
+  .hud{top:8px;left:8px;right:8px;gap:8px}
+  .hud-title small{display:none}
+  .hud-title h2{font-size:14px;margin:3px 0}
+  .metrics{gap:8px}
+  .metrics small{letter-spacing:0;font-size:8px}
+  .metrics b{font-size:15px}
+  .pause{min-width:44px;min-height:44px;padding:5px}
+  .rhythm{bottom:7px;width:calc(100% - 16px)}
+  .dual .rail{height:36px}
+  .dual .target{width:28px;height:28px;left:77px;top:4px}
+  .dual .rail:after{height:26px;top:5px}
+  .dual .note{top:3px}
+  .dual .rail-label{top:10px}
+  .rhythm-hint{margin-top:4px;font-size:10px;gap:5px}
+  .rhythm-hint kbd{display:none}
+  dialog{padding:18px;max-height:90dvh;overflow:auto}
+}
+@media (any-pointer:coarse) and (orientation:landscape) and (max-height:550px){
+  #app.play{grid-template-rows:42px 1fr 0}
+  #app.play .main{grid-template-columns:130px minmax(0,1fr);grid-template-rows:minmax(0,1fr)}
+  .play .order-side{display:flex;gap:6px;align-items:stretch}
+  .touch-key{min-height:44px;font-size:20px}
+  .play:not(.serving-view) .scene canvas{height:calc(100% - 141px)}
+}
+</style></head><body><div id="app"><header><div><span class="brand"><span>✦</span>節奏法師</span><span class="edition">LITTLE RHYTHMS, EVERYDAY MAGIC</span></div><div class="nav"><small>節奏法師 · 三鍵挑戰</small><button class="menu" id="menu" aria-label="開啟遊戲選單" title="遊戲介紹與設定">☰</button></div></header><main class="main"><section class="intro"><div class="eyebrow">CHAPTER 01 · THE LITTLE KITCHEN</div><h1>翻面吧！<br><span>小廚房。</span></h1><p class="desc">把忙亂日常，煎成剛剛好的節奏。<br>聽見拍點，翻起一顆金黃的蛋。</p><div class="level-nav" id="levelNav"></div><div class="level-note" id="levelNote"></div><div class="tags"><span>單鍵節奏</span><span>100 BPM</span><span>約 45 秒</span></div><button class="primary" id="start">開始煎蛋 <span>↗</span></button><section class="soundtrack-card" aria-label="本關原創配樂"><p id="songInfo"></p><div class="song-actions"><button type="button" id="songPreview">試聽配樂</button><button type="button" id="songDownload">下載 WAV</button></div><p id="songStatus" aria-live="polite"></p></section><p class="sub">ENTER 開始 · SPACE 翻面</p></section><aside class="order-side"><div class="side-heading">本次訂單</div><div class="order-ticket" id="orderTicket"><span class="portrait" id="customerFace">🧑‍🎓</span><div><b id="orderTitle">歡迎來到魔法早餐店</b><small id="orderDetail">用節奏魔法，完成每一份早餐。</small><div class="order-meter"><i id="orderFill" style="width:0%"></i></div></div></div><div id="spreadChances" class="spread-chances" hidden><span id="spreadChanceText" role="status"></span><div class="spread-chance-dots" id="spreadChanceDots" aria-hidden="true"><i></i><i></i><i></i><i></i></div></div><div class="judge" id="judge"><strong>READY?</strong><small>金色音符到圓圈時，按空白鍵</small></div></aside><section class="scene"><canvas id="canvas" width="1200" height="760" aria-label="煎蛋廚房：節拍到時按空白鍵，法師協助翻鍋，煎蛋會在空中翻面"></canvas><div class="scene-label home-only">TODAY'S SPECIAL<b>一顆蛋，也能有自己的節奏。</b></div><div class="preview-badge home-only">● 動畫示意</div><div class="home-caption home-only"><b>看準拍點 → 按下空白鍵 → 翻面！</b><br><span style="display:block;margin-top:8px;font-size:10px">小法師準備好了，就等你開火。</span></div><div id="gameUI" hidden><div class="progress"><i id="progress"></i></div><div class="hud"><div class="hud-title"><small>01 / LITTLE KITCHEN</small><h2>翻面吧！小廚房</h2></div><div class="metrics"><div><small>SCORE</small><b id="score">000000</b></div><div><small>COMBO</small><b id="combo">0</b></div><button class="pause" id="pause">Ⅱ <small style="display:inline">ESC</small></button></div></div><div class="stage-task" id="stageTask"></div><div class="rhythm"><div class="rail" id="rail"><span class="rail-label" id="lane1Label">HIT →</span><div class="target"></div><div id="notes"></div></div><div class="rail" id="rail2" hidden><span class="rail-label">K 肉</span><div class="target"></div><div id="notes2"></div></div><div class="rhythm-hint"><kbd>SPACE / J</kbd> 每個拍點翻一次 <span>·</span> <span id="remaining">45 秒</span></div><div class="touch-controls" aria-label="觸控節奏按鍵"><button class="touch-key" type="button" data-key="KeyJ" aria-label="J 軌">J</button><button class="touch-key" type="button" data-key="KeyK" aria-label="K 軌">K</button></div></div></div><div id="count" hidden></div></section></main><footer class="footer"><span>節奏法師 / KITCHEN PROTOTYPE</span><span>耳機體驗更佳　·　電腦鍵盤操作</span></footer></div>
+<dialog id="menuDialog"><div class="dialog-top"><h2>小廚房導覽</h2><button class="close" id="closeMenu" aria-label="關閉選單">×</button></div><div class="tabs"><button class="active" data-tab="about">遊戲介紹</button><button data-tab="how">怎麼玩</button><button data-tab="settings">聲音與校正</button><button data-tab="levels">選擇關卡</button></div><div class="panel" id="about"><div style="font-size:42px">✦ 🍳</div><h3>把一天的手忙腳亂，變成節拍。</h3><p>你掌握節奏，小法師在旁邊施法幫忙。跟著輕快的廚房旋律，讓煎蛋在空中翻面，再穩穩落進鍋裡。</p><p>這是「節奏法師」的第一個關卡原型。全程使用固定桌面畫面，從首頁直接開始一局。</p></div><div class="panel" id="how" hidden><div class="instruction"><span class="icon">◉</span><p><b>01 看準拍點</b>金色音符由右向左移動，到達金色圓圈。</p></div><div class="instruction"><span class="icon">⌨</span><p><b>02 按 SPACE 或 J</b>按一次，翻一次。不需要長按或點擊鍋子。</p></div><div class="instruction"><span class="icon">🍳</span><p><b>03 聽見你的成功</b>準確命中觸發翻蛋、落鍋聲和魔法星光。</p></div><p class="small-note">Perfect ±85ms · Good ±170ms。空按會中斷連擊並計入失誤。Esc 暫停，切換視窗會自動暫停。</p></div><div class="panel" id="settings" hidden><label class="setting">音量 <input id="volume" type="range" min="0" max="100" value="60"></label><label class="setting">判定校正 <input id="offset" type="range" min="-200" max="200" step="10" value="0"></label><p id="offsetText">0 ms</p><p class="small-note">若聽到拍點後按鍵總是偏晚，將校正調成正值。可先從 +50ms 試試看。</p></div><div class="panel" id="levels" hidden><div class="level-cards" id="levelCards"></div><p class="small-note">建議從第一關循序挑戰，也可以直接試玩各關。準確度達 60% 即通關。</p></div><div class="dialog-actions"><button class="secondary" id="menuHome">回到首頁</button><button class="primary" id="menuReturn">返回 <span>↗</span></button></div></dialog>
+<dialog id="pauseDialog"><div class="eyebrow">TAKE A LITTLE BREAK</div><h2>先把火關小一點。</h2><p>節奏已暫停，繼續前會倒數三拍。</p><div class="dialog-actions"><button class="primary" id="resume">繼續煎蛋 <span>↗</span></button><button class="secondary" id="quit">回首頁</button></div></dialog>
+<dialog id="resultDialog"><div class="eyebrow">YOUR LITTLE EVERYDAY VICTORY</div><h2 id="resultTitle">今天的蛋，煎得真好。</h2><div class="result-number" id="accuracy">0%</div><p id="resultLabel">節奏準確度</p><div class="result-grid"><div><b id="rPerfect">0</b><small>PERFECT</small></div><div><b id="rGood">0</b><small>GOOD</small></div><div><b id="rMiss">0</b><small id="rMissLabel">MISS / 空按</small></div><div><b id="rCombo">0</b><small>最高連擊</small></div></div><div class="dialog-actions"><button class="primary" id="nextLevel">下一關 <span>↗</span></button><button class="secondary" id="again">再挑戰一次</button><button class="secondary" id="resultHome">回首頁</button></div></dialog>
+<aside id="startup" role="status" style="position:fixed;inset:0;z-index:1000;display:grid;place-items:center;background:#fff0ddf5"><div style="max-width:520px;padding:32px;background:#fffaf2;border:1px solid #dfb678;border-radius:20px;text-align:center"><h2 id="startupTitle">正在開啟 3D 小廚房</h2><p id="startupMessage" style="line-height:1.8">正在載入繪圖引擎，請稍候。</p><button id="retryLoad" class="primary" style="margin:20px auto 0" hidden>重新載入</button><p style="font-size:12px;color:#8b7966">用支援 WebGL 2 的瀏覽器開啟遊戲，手機可使用畫面上的 J／K。</p></div></aside><script>'use strict';
+// Original instrumental arrangements. No recordings, samples, network or commercial melodies.
+globalThis.RhythmMusic = (() => {
+  const bands={
+    pop:{roots:[48,43,45,41],chords:[[0,4,7,11],[0,4,7,9],[0,3,7,10],[0,4,7,9]],scale:[0,2,4,7,9,12],lead:'keys',bass:'bass'},
+    funk:{roots:[41,46,43,48],chords:[[0,3,7,10],[0,4,7,10],[0,3,7,10],[0,4,7,10]],scale:[0,3,5,7,10,12],lead:'keys',bass:'slap'},
+    toast:{roots:[45,41,48,43],chords:[[0,3,7,10],[0,4,7,11],[0,4,7,9],[0,4,7,10]],scale:[0,2,3,5,7,9,10],lead:'keys',bass:'bass'},
+    epic:{roots:[38,34,41,36],chords:[[0,3,7,12],[0,4,7,12],[0,4,7,12],[0,4,7,12]],scale:[0,3,5,7,10,12],lead:'brass',bass:'bass'},
+    fusion:{roots:[45,41,38,40],chords:[[0,3,7,10,14],[0,4,7,11,14],[0,3,7,10,14],[0,4,8,10,14]],scale:[0,2,3,6,7,10,12],lead:'solo',bass:'slap'}
+  };
+  const hooks={
+    pop:[[[0,.7,0],[.75,.23,1],[1,.75,2],[2,.75,3],[3,.46,4],[3.5,.4,3]],[[0,1.35,2],[1.5,.42,1],[2,.7,0],[3,.8,3]],[[0,.65,2],[.75,.23,3],[1,.85,4],[2,1.2,5],[3.5,.4,4]],[[0,.75,3],[1,.8,2],[2,1.8,0]]],
+    funk:[[[.5,.28,0],[1.25,.3,2],[2,.65,3],[3.25,.45,1]],[[0,.35,2],[.75,.3,1],[1.5,.35,0],[2.5,1.2,4]],[[0,.45,3],[1,.3,2],[1.75,.4,4],[2.5,.35,3],[3.25,.55,1]],[[.5,.4,2],[1.5,.4,1],[2.5,1.2,0]]],
+
+    epic:[[[0,1.4,0],[1.5,.4,2],[2,1.8,3]],[[0,.85,4],[1,.85,3],[2,1.8,2]],[[0,.8,2],[1,.8,3],[2,1.8,5]],[[0,1.4,4],[1.5,.4,3],[2,1.8,0]]],
+    fusion:[[[0,.35,0],[.5,.35,2],[1,.4,4],[1.75,.4,3],[2.5,.4,5],[3.25,.6,4]],[[0,.4,6],[.75,.35,5],[1.5,.4,3],[2,.35,2],[2.75,.4,1],[3.5,.4,0]],[[0,.3,2],[.5,.3,3],[1,.3,4],[1.5,.3,6],[2.25,.3,5],[2.75,.3,3],[3.25,.6,2]],[[0,.5,4],[.75,.45,3],[1.5,.4,2],[2,.4,1],[2.75,1,0]]]
+  };
+  function synthesize(song,sampleRate=24000){
+    const {sin,cos,exp,PI,min,max,abs,tanh,round,ceil,pow,imul,sqrt}=Math;
+    const length=ceil(song.duration*sampleRate),left=new Float32Array(length),right=new Float32Array(length),drums=new Float32Array(length),cues=new Float32Array(length);
+    let seed=7123+song.id.length,notesRendered=0,drumsRendered=0;
+    const random=()=>{seed=(imul(seed,1664525)+1013904223)>>>0;return seed/2147483648-1;};
+    const frequency=m=>440*pow(2,(m-69)/12);
+    function voice(at,duration,midi,amp,type='lead',pan=0){
+      const start=round(at*sampleRate);if(start<0||start>=length||duration<=0)return;
+      const hz=frequency(midi),n=min(ceil(duration*sampleRate),length-start),lp=sqrt((1-pan)/2),rp=sqrt((1+pan)/2);
+      const slow=type==='strings'||type==='brass',attack=slow?.045:.006,release=min(duration*.35,slow?.23:.10);let filtered=0;
+      notesRendered++;
+      for(let j=0;j<n;j++){
+        const t=j/sampleRate,releaseEnvelope=min(1,max(0,(duration-t)/release)),envelope=min(1,t/attack)*releaseEnvelope;
+        const a=2*PI*hz*t,vibrato=type==='solo'||type==='guitarLead'?.025*sin(2*PI*5.2*t):0;
+        const s=sin(a+vibrato);let v;
+        if(type==='bass')v=(.80*s+.15*sin(a*2)+.05*sin(a*3))*(.62+.38*exp(-t*4));
+        else if(type==='slap')v=(.65*s+.22*sin(a*2)+.13*sin(a*5)*exp(-t*30))*exp(-t*2.8);
+        else if(type==='keys')v=(.65*s+.22*sin(a*2.002)*exp(-t*4)+.13*sin(a*4)*exp(-t*9))*exp(-t*1.4);
+        else if(type==='clean')v=(s+.35*sin(a*2)+.18*sin(a*3))*.66*exp(-t*4.5);
+        else if(type==='guitar'||type==='guitarLead'){v=tanh(2.4*(s+.32*sin(a*2)+.20*sin(a*3)))*.68*(type==='guitar'?exp(-t*3):.9);filtered+=.30*(v-filtered);v=filtered;}
+        else if(type==='strings')v=.5*s+.24*sin(a*1.003)+.16*sin(a*2)+.07*sin(a*3)+.03*sin(a*4);
+        else if(type==='brass')v=.53*s+.25*sin(a*2)+.13*sin(a*3)+.06*sin(a*4)+.03*sin(a*5);
+        else if(type==='solo')v=tanh((s+.24*sin(a*2)+.10*sin(a*3))*1.5)*.8;
+        else v=.64*s+.21*sin(a*2)+.10*sin(a*3)+.05*sin(a*1.002);
+        const value=amp*envelope*v;left[start+j]+=value*lp;right[start+j]+=value*rp;
+      }
+    }
+    function drum(at,amp,type='kick'){
+      const start=round(at*sampleRate),duration=type==='crash'?.95:type==='hat'?.055:type==='snare'?.18:.32;let previous=0;drumsRendered++;
+      for(let j=0,n=min(round(duration*sampleRate),length-start);j<n;j++){
+        const t=j/sampleRate;let v;
+        if(type==='kick')v=sin(2*PI*(48*t+102*.022*(1-exp(-t/.022))))*exp(-t*15)+.08*random()*exp(-t*170);
+        else if(type==='tom')v=sin(2*PI*(92*t+62*.026*(1-exp(-t/.026))))*exp(-t*12);
+        else if(type==='snare')v=(.68*random()+.32*sin(2*PI*178*t))*exp(-t*25);
+        else{const x=random();v=(x-previous)*(type==='crash'?exp(-t*5):exp(-t*75));previous=x;}
+        drums[start+j]+=amp*v;
+      }
+    }
+    function noteCue(at,midi,amp){const start=round(at*sampleRate),n=min(round(.095*sampleRate),length-start),hz=frequency(midi);for(let j=0;j<n;j++){const t=j/sampleRate;cues[start+j]+=amp*(sin(2*PI*hz*t)+.16*sin(4*PI*hz*t))*min(1,t/.003)*exp(-t*38);}}
+
+    const band=bands[song.style];
+    for(const bar of song.bars){
+      const {step,beats,start,section}=bar,c=bar.index%4,root=band.roots[c],chord=band.chords[c],chorus=section>=2;
+      const energy=[.77,.90,1,.88][section];
+      if(start>=song.end)continue;
+
+      if (song.style === 'toast') {
+        // Make the playable notes the lead. The accompaniment leaves room for the two key timbres.
+        for (const interval of chord) voice(start,beats*step,root+12+interval,.032,'strings',.32);
+        for (let pulse=0; pulse<beats; pulse++) {
+          const at=start+pulse*step;
+          voice(at,step*.77,root-12+(pulse===2?7:0),.15,'bass');
+          drum(at,pulse===0?.17:.09,'kick');
+          if (pulse===1 || pulse===3) drum(at,.043,'hat');
+          if (!bar.cues.length) voice(at,step*.58,root+24+chord[pulse%chord.length],.14,'clean');
+        }
+        for (const [i,cue] of bar.cues.entries()) {
+          const onset=start+cue.position*step;
+          const isJ=cue.lane===0;
+          const midi=root+(isJ?24:36)+chord[(i+bar.index)%chord.length];
+          const pan=isJ?-.26:.26;
+          voice(onset,step*.31,midi,isJ?.32:.28,isJ?'clean':'keys',pan);
+          noteCue(onset,midi,isJ?.19:.16);
+          if (cue.heldBeats) {
+            const length=cue.heldBeats*step;
+            voice(onset,length,midi,.16,'strings',pan);
+            voice(onset+length,step*.20,midi+12,.17,'keys',pan);
+            noteCue(onset+length,midi+12,.16);
+          }
+        }
+        continue;
+      }
+      // A melodic hook with held notes and an answering phrase, independent of the chart.
+      const phrase=hooks[song.style][c];
+      for(const [position,duration,degree] of phrase){if(position>=beats)continue;const midi=root+24+band.scale[degree]+(section===2&&position>=2?12:0),len=min(duration,beats-position)*step;
+        voice(start+position*step,len,midi,(chorus?.225:.195)*energy,band.lead,-.10);
+        if(chorus&&(song.style==='pop'||song.style==='epic'))voice(start+position*step+.012,len,midi-12,.080,'clean',.42);
+      }
+      if(beats===5){voice(start+4*step,.9*step,root+24+band.scale[(bar.index+2)%band.scale.length],.20,band.lead,.2);}
+      // Chord instruments occupy a wide stereo field, separate from the lead and bass.
+      if(song.style==='pop'){
+        for(const beat of [0,2])for(const [i,interval] of chord.entries())voice(start+beat*step+i*.008,min(1.9,beats-beat)*step,root+12+interval,.065,'clean',beat===0?-.65:.65);
+        if(chorus)for(const interval of chord)voice(start,beats*step,root+12+interval,.031,'strings',.30);
+      }else if(song.style==='funk'){
+        for(const beat of [.5,1.5,2.75,3.5])if(beat<beats)for(const interval of chord)voice(start+beat*step,.24*step,root+12+interval,.070,'clean',-.65);
+        for(const beat of [0,2])if(beat<beats)for(const interval of chord)voice(start+beat*step,step*.9,root+12+interval,.045,'keys',.60);
+      }else if(song.style==='fusion'){
+        for(let beat=0;beat<beats;beat+=.5){const riff=[0,0,7,0,3,0,7,10][round(beat*2)%8];for(const pan of [-.72,.72])for(const interval of [0,7])voice(start+beat*step+(pan>0?.007:0),step*.36,root+riff+interval,.065,'guitar',pan);}
+        if(song.style==='fusion')for(const beat of [0,1.5,3])if(beat<beats)for(const interval of chord)voice(start+beat*step,min(.9,beats-beat)*step,root+12+interval,.048,'keys',.45);
+      }else{
+        for(const interval of chord){voice(start,beats*step,root+12+interval,.064,'strings',-.65);voice(start+.018,beats*step-.018,root+12+interval,.055,'strings',.65);}
+        for(let beat=0;beat<beats;beat+=.5)voice(start+beat*step,step*.4,root+12+chord[round(beat*2)%chord.length],.078,'clean',.4);
+      }
+      // Bass phrases give each arrangement a distinct groove.
+      for(let beat=0;beat<beats;beat++){
+        const bassNote=root-12+(song.style==='funk'?[0,0,7,10][beat%4]:song.style==='fusion'?[0,7,10,12,7][beat%5]:0);
+        voice(start+beat*step,step*.83,bassNote,.27*energy,band.bass,.03);
+        if(song.style==='funk'&&(beat===1||beat===3))voice(start+(beat+.5)*step,step*.35,root,.18,'slap',.03);
+        if(song.style==='fusion')voice(start+(beat+.5)*step,step*.4,root-5,.13,'slap',.03);
+        drum(start+beat*step,beat===0?.43:.27,'kick');if(beat%2)drum(start+beat*step,.21,'snare');
+        drum(start+beat*step,.027,'hat');drum(start+(beat+.5)*step,.036,'hat');
+
+        if(song.style==='epic'&&(beat===0||beat===2))drum(start+beat*step,.23,'tom');
+      }
+      if(bar.index%4===0)drum(start,.07,'crash');
+      if(bar.index%4===3)for(const p of [beats-.75,beats-.5,beats-.25])drum(start+p*step,.10,'tom');
+      // Playable attacks are pitched accents inside the arrangement, not a loud metronome.
+      for(const [i,position] of bar.pattern.entries()){
+        
+        if(!Number.isInteger(position))drum(start+position*step,song.difficulty===4?.09:.12,'kick');
+      }
+      for (const cue of bar.cues) {
+        const onset = start + cue.position * step;
+        const midi = root + (cue.lane === 0 ? 24 : 36);
+        noteCue(onset,midi,cue.lane === 0 ? .125 : .10);
+        if (cue.heldBeats > 0) {
+          voice(onset,cue.heldBeats * step,midi - 12,.075,'strings',cue.lane === 0 ? -.30 : .30);
+          noteCue(onset + cue.heldBeats * step,midi + 7,.10);
+        }
+      }
+    }
+    const tonic=band.roots[0];for(const interval of band.chords[0]){voice(song.end,Math.min(1.9,song.duration-song.end),tonic+12+interval,.08,'strings',-.4);voice(song.end+.01,Math.min(1.9,song.duration-song.end-.01),tonic+24+interval,.04,'clean',.4);}voice(song.end,1.2,tonic-12,.22,'bass');
+    // Short stereo room and musical echoes; limited to pitched instruments so kicks stay crisp.
+    const delayA=round(.131*sampleRate),delayB=round(.193*sampleRate);let musicEnergy=0,drumEnergy=0;
+    // Give the short funk keyboard/guitar phrases the same musical presence as the sustained leads.
+    const musicGain=song.style==='funk'?1.25:1;
+    for(let i=0;i<length;i++){left[i]*=musicGain;right[i]*=musicGain;const l=left[i],r=right[i];musicEnergy+=(l*l+r*r)/2;drumEnergy+=drums[i]*drums[i];}
+    for(let i=length-1;i>=0;i--){if(i>=delayA){left[i]+=right[i-delayA]*.17;right[i]+=left[i-delayA]*.11;}if(i>=delayB){left[i]+=left[i-delayB]*.11;right[i]+=right[i-delayB]*.17;}}
+    let peak=0;for(let i=0;i<length;i++){const backing=drums[i]*.72+cues[i];const fade=min(1,max(0,(length-i)/(sampleRate*.16)));left[i]=tanh((left[i]+backing)*1.25)*fade;right[i]=tanh((right[i]+backing)*1.25)*fade;peak=max(peak,abs(left[i]),abs(right[i]));}
+    const gain=.88/max(peak,.01);for(let i=0;i<length;i++){left[i]*=gain;right[i]*=gain;}
+    return {pcm:left,right,sampleRate,duration:length/sampleRate,diagnostics:{pitchedNotes:notesRendered,drumHits:drumsRendered,musicRms:sqrt(musicEnergy/length),drumRms:sqrt(drumEnergy/length)}};
+  }
+  return {synthesize};
+})();
+
+function bootKitchen(){
+'use strict';
+const $=id=>document.getElementById(id),c=$('canvas'),unused=null;let mode='home',ac,master,origin=0,held=0,notes=[],stats,combo=0,flipAt=-100,flipGood=true,particles=[],lastJudge=-100,volume=.6,offset=0,scheduled=[],resumeAt=0,menuWasPlaying=false;let beat=.6,duration=43.2;
+const soundtrack = [
+  {title:'晨光煎蛋曲', file:'sunrise-skillet', style:'pop', genre:'古典鋼琴與弦樂'},
+  {title:'小黃瓜快板', file:'cucumber-allegro', style:'funk', genre:'電鋼琴與放克貝斯'},
+  {title:'奶油吐司二重奏', file:'butter-toast-duet', style:'toast', genre:'吉他 J 軌 · 電鋼琴 K 軌 · 長音尾端提示'},
+  {title:'主廚上菜進行曲', file:'plating-march', style:'epic', genre:'銅管、弦樂與戰鼓'},
+  {title:'雙鍋尖峰時刻', file:'double-pan-rush', style:'fusion', genre:'爵士搖滾與雙軌提示'}
+];
+const renderedTracks = new Map();
+let musicBus, previewSource;
+
+function renderTrack(index, chart) {
+  if (!renderedTracks.has(index)) {
+    const {bpm,bars:barCount} = levels[index];
+    const step = 60 / bpm;
+    const bars = Array.from({length:barCount}, (_, bar) => {
+      const start = bar * 4 * step;
+      const attacks = chart.filter(note => Math.floor(note.t / (4 * step) + 1e-7) === bar);
+      const cues = attacks.map(note => ({
+        position:(note.t - start) / step,
+        lane:note.lane,
+        heldBeats:note.kind === 'hold' ? (note.end - note.t) / step : 0
+      }));
+      return {
+        index:bar, start, step, beats:4, section:Math.min(3,Math.floor(bar * 4 / barCount)),
+        pattern:[...new Set(cues.map(cue => Math.round(cue.position * 4) / 4))], cues
+      };
+    });
+    const duration = barCount * 4 * step;
+    renderedTracks.set(index,RhythmMusic.synthesize({
+      ...soundtrack[index], id:soundtrack[index].file, bars, duration, difficulty:index,
+      end:duration - 4 * step
+    }));
+  }
+  return renderedTracks.get(index);
+}
+
+function currentTrack() {
+  if (renderedTracks.has(level)) return renderedTracks.get(level);
+  const previousNotes = notes;
+  try { return renderTrack(level,build()); }
+  finally { notes = previousNotes; }
+}
+
+function playTrack(at, seconds = 0) {
+  const track = currentTrack();
+  if (seconds >= track.duration) return null;
+  if (!track.buffer) {
+    track.buffer = ac.createBuffer(2,track.pcm.length,track.sampleRate);
+    track.buffer.getChannelData(0).set(track.pcm);
+    track.buffer.getChannelData(1).set(track.right);
+  }
+  const source = ac.createBufferSource();
+  source.buffer = track.buffer;
+  source.connect(musicBus);
+  scheduled.push(source);
+  source.onended = () => {
+    source.disconnect();
+    scheduled = scheduled.filter(item => item !== source);
+    if (previewSource === source) {
+      previewSource = null;
+      $('songPreview').textContent = '試聽配樂';
+    }
+  };
+  source.start(at,seconds);
+  return source;
+}
+
+function stopPreview() {
+  if (!previewSource) return;
+  previewSource.stop();
+  previewSource = null;
+  $('songPreview').textContent = '試聽配樂';
+}
+
+async function togglePreview() {
+  if (previewSource) return stopPreview();
+  const selected = level;
+  $('songPreview').disabled = true;
+  try {
+    await audio();
+    if (level !== selected || mode !== 'home') return;
+    currentTrack();
+    previewSource = playTrack(ac.currentTime + .03);
+    $('songPreview').textContent = '停止試聽';
+  } catch {
+    $('songStatus').textContent = '無法播放，請重新點選試聽。';
+  } finally {
+    $('songPreview').disabled = false;
+  }
+}
+
+function downloadSoundtrack() {
+  const {pcm,right,sampleRate} = currentTrack();
+  const wave = new DataView(new ArrayBuffer(44 + pcm.length * 4));
+  function writeTag(offset,tag) {
+    for (let i=0;i<tag.length;i++) wave.setUint8(offset+i,tag.charCodeAt(i));
+  }
+  writeTag(0,'RIFF'); wave.setUint32(4,wave.byteLength-8,true);
+  writeTag(8,'WAVE'); writeTag(12,'fmt '); wave.setUint32(16,16,true);
+  wave.setUint16(20,1,true); wave.setUint16(22,2,true);
+  wave.setUint32(24,sampleRate,true); wave.setUint32(28,sampleRate*4,true);
+  wave.setUint16(32,4,true); wave.setUint16(34,16,true);
+  writeTag(36,'data'); wave.setUint32(40,wave.byteLength-44,true);
+  for (let i=0;i<pcm.length;i++) {
+    wave.setInt16(44+i*4,Math.round(pcm[i]*32767),true);
+    wave.setInt16(46+i*4,Math.round(right[i]*32767),true);
+  }
+  const url = URL.createObjectURL(new Blob([wave],{type:'audio/wav'}));
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = soundtrack[level].file + '.wav';
+  document.body.append(link);
+  link.click();
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(url),60000);
+}
+
+const levels=[
+{title:'翻面吧！',name:'小廚房',short:'煎蛋',bpm:100,bars:18,desc:'厚重的低音與古典風旋律。<br>抓住穩定拍點，翻起金黃煎蛋。',style:'古典重拍',difficulty:'★☆☆☆☆',hint:'每個拍點翻一次',action:'開始煎蛋',color:'#e88753'},
+{title:'切切切！',name:'小黃瓜切片',short:'切菜',bpm:128,bars:18,desc:'刀聲加入輕快的快速旋律。<br>連切八刀，切出整齊的小黃瓜圓片。',style:'快速撥弦',difficulty:'★★☆☆☆',hint:'成功切八刀，完成一條小黃瓜',action:'開始切菜',color:'#8da376'},
+{title:'魔法抹醬！',name:'金黃吐司',short:'抹醬',bpm:138,bars:18,desc:'用鍋鏟推拌滿鍋鮮蔬，跟上跳躍的切分節奏。<br>注意穿插的半拍，讓食材在鍋中跳舞。',style:'吉他與電鋼琴',difficulty:'★★★☆☆',hint:'留意半拍音符，跟拍翻炒',action:'開始翻炒',color:'#cf9962'},
+{title:'漂亮上菜！',name:'漢堡排餐',short:'擺盤',bpm:150,bars:18,desc:'短連打與休止交錯的快速樂句。<br>漢堡肉 → 煎蛋 → 蔬菜 → 淋醬，完成一盤料理。',style:'快速協奏',difficulty:'★★★★☆',hint:'J 肉 → K 蛋 → J 菜 → 長按 K 淋醬',action:'開始擺盤',color:'#ed7946'},
+{title:'忙碌時刻！',name:'雙手小主廚',short:'雙線',bpm:160,bars:20,desc:'左手煎蛋，右手煎肉餅。<br>兩條節奏軌，迎接廚房最忙碌的時刻。',style:'雙線終曲',difficulty:'★★★★★',hint:'J 翻蛋 · K 煎肉餅 · 重疊音符同時按',action:'開始雙線挑戰',color:'#8d83a9'}];
+let level=0,chops=0,plates=0,stirs=0,anim=[-100,-100],demoStep=0,completed={};try{completed=JSON.parse(localStorage.getItem('kitchen-completed')||'{}')}catch{}
+const sceneClock=()=>mode==='playing'?time():mode==='home'?performance.now()/1000:held;
+function selectLevel(i){stopPreview();level=i;beat=60/levels[i].bpm;duration=levels[i].bars*4*beat;chops=plates=stirs=0;anim=[-100,-100];demoStep=0;flipAt=-100;const l=levels[i],song=soundtrack[i];$('songInfo').innerHTML='<strong>♫ '+song.title+'</strong>'+l.bpm+' BPM · '+song.genre;$('songStatus').textContent='';$('app').classList.toggle('dual',i===4);document.documentElement.style.setProperty('--orange',l.color);document.querySelector('.intro .eyebrow').textContent='CHAPTER 0'+(i+1)+' · RHYTHM KITCHEN';document.querySelector('.intro h1').innerHTML=l.title+'<br><span>'+l.name+'。</span>';document.querySelector('.intro .desc').innerHTML=l.desc;document.querySelector('.tags').innerHTML='<span>'+l.style+'</span><span>'+l.bpm+' BPM</span><span>約 '+Math.ceil(duration+1.8)+' 秒</span>';$('start').innerHTML=l.action+' <span>↗</span>';document.querySelector('.intro .sub').innerHTML='<span class="start-key">按 J 開始 <small>J</small></span><span style="display:block;margin-top:9px;color:#998a7b">開始遊戲'+(i===4?' · 遊戲中使用 J / K':'')+'</span>';$('levelNote').textContent=l.difficulty+'　'+(completed[i]?'✓ 已通關 · 最佳 '+completed[i]+'%':'第 '+(i+1)+' 關 / 共 5 關');$('levelNav').innerHTML=levels.map((x,k)=>'<button class="'+(k===i?'active ':'')+(completed[k]?'done':'')+'" data-level="'+k+'" aria-label="第'+(k+1)+'關 '+x.short+'" aria-pressed="'+(k===i)+'"><span class="chapter-num">0'+(k+1)+'</span><span>'+['煎蛋','小黃瓜切片','長按抹醬','漢堡排餐','雙鍋挑戰'][k]+'</span></button>').join('');$('levelCards').innerHTML=levels.map((x,k)=>'<button data-level="'+k+'"><b>0'+(k+1)+' '+x.short+' '+x.difficulty+'</b><small>'+x.bpm+' BPM · '+x.style+'</small></button>').join('');document.querySelectorAll('[data-level]').forEach(b=>b.onclick=()=>{home();selectLevel(+b.dataset.level)});document.querySelector('.hud-title small').textContent='0'+(i+1)+' / RHYTHM KITCHEN';document.querySelector('.hud-title h2').textContent=l.title+l.name;$('rail2').hidden=false;$('app').classList.add('dual');$('lane1Label').textContent='J';document.querySelector('#rail2 .rail-label').textContent='K';document.querySelector('.rhythm-hint').innerHTML='<kbd>'+(i===4?'按 J ／ K':'按下空白鍵')+'</kbd><span>'+l.hint+'</span><span id="remaining"></span>';document.querySelector('.home-caption').innerHTML='<b>'+(i===4?'按 J 翻蛋 ／ 按 K 煎肉餅':'按下空白鍵')+'</b><span style="display:block;margin-top:8px;font-size:10px">音符到達圓圈時按鍵，每次命中完成一次料理動作。</span>';document.querySelector('.scene-label b').textContent=l.short+'，也有自己的節奏。';updateTask();document.querySelector('.rhythm-hint kbd').textContent='J 軌 · K 軌';document.querySelector('.rhythm-hint span').textContent=i===2?'吉他 J · 電鋼琴 K · 長條尾端高音一到即可放開':'照音符按鍵 · 長條按住 · 同列重疊一起按';
+}
+function updateTask(){$('stageTask').textContent=level===1||level===4?'已切 '+Math.floor(chops/8)+' 顆 · 本顆 '+(chops%8)+' / 8 刀':level===3?'已完成 '+Math.floor(plates/4)+' 盤 · 本盤 '+(plates%4)+' / 4':level===2?'成功翻炒 '+stirs+' 次':'穩穩跟上重拍，讓煎蛋翻面。'}
+if(!window.THREE)throw new Error('Three.js 尚未載入');
+const scene=new THREE.Scene();scene.background=new THREE.Color('#fff1d6');
+let renderer;try{renderer=new THREE.WebGLRenderer({canvas:c,antialias:true,alpha:false})}catch(e){throw new Error('無法啟動 WebGL。請以 Chrome 或 Edge 開啟，並啟用瀏覽器的圖形加速。')}
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.03;
+const camera=new THREE.PerspectiveCamera(36,1,.1,80);camera.position.set(6,7.5,10);camera.lookAt(0,1.2,0);
+scene.add(new THREE.HemisphereLight(0xfff5df,0x8d7a66,.95));const sun=new THREE.DirectionalLight(0xffedcf,1.8);sun.position.set(-3,9,5);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);Object.assign(sun.shadow.camera,{left:-7,right:7,top:7,bottom:-7});sun.shadow.bias=-.0005;sun.shadow.normalBias=.025;scene.add(sun);const fill=new THREE.DirectionalLight(0xcddcff,.5);fill.position.set(5,4,-3);scene.add(fill);
+const mat=(color,roughness=.6,metalness=0)=>new THREE.MeshStandardMaterial({color,roughness,metalness});
+const cream=mat('#f9f0dd'),wood=mat('#cf8a53'),iron=mat('#363d49',.4,.55),edge=mat('#68717d',.3,.6),purple=mat('#9760d6'),skin=mat('#f5d6b7'),black=mat('#383341');
+function mesh(geo,m,x=0,y=0,z=0,parent=scene){const o=new THREE.Mesh(geo,m);o.position.set(x,y,z);o.castShadow=true;o.receiveShadow=true;parent.add(o);return o}
+function box(w,h,d,m,x,y,z,parent){return mesh(new THREE.BoxGeometry(w,h,d),m,x,y,z,parent)}
+function sphere(r,m,x,y,z,parent,sx=1,sy=1,sz=1){const o=mesh(new THREE.SphereGeometry(r,32,20),m,x,y,z,parent);o.scale.set(sx,sy,sz);return o}
+function cyl(r1,r2,h,m,x,y,z,parent){return mesh(new THREE.CylinderGeometry(r1,r2,h,64),m,x,y,z,parent)}
+// Outdoor restaurant: the foreground is the cook's side, customers wait beyond the service counter.
+scene.background=new THREE.Color('#bde9f2');box(20,.18,18,mat('#d4c7ad'),0,-.25,-2);box(10,.3,6.5,mat('#68b7ab'),0,-.17,.5);box(10,.1,6.5,mat('#ffd596'),0,0,.5);
+const frameMat=mat('#995c3e');for(const x of [-4.2,4.2]){box(.15,4.1,.15,frameMat,x,1.85,-3.05);box(.25,.12,.3,mat('#f5d5a4'),x,3.9,-3.05)}box(8.6,.19,.18,frameMat,0,3.8,-3.05);
+// Striped canopy stops behind the kitchen, keeping all cooking actions visible.
+for(let i=0;i<14;i++){const canopy=box(.62,.1,1.8,mat(i%2?'#fff4d5':'#ef9276'),-4.03+i*.62,4.05,-3.8);canopy.rotation.x=-.08;box(.62,.26,.06,mat(i%2?'#fff4d5':'#ef9276'),-4.03+i*.62,3.88,-2.92)}
+box(8.3,1.15,.2,mat('#58ad99'),0,.48,-2.92);box(8.55,.16,.9,mat('#f5ba70'),0,1.12,-2.83);for(let x=-3.9;x<4;x+=.55)box(.025,.95,.025,mat('#3d8e7e'),x,.48,-2.8);
+const signCanvas=document.createElement('canvas');signCanvas.width=768;signCanvas.height=120;const signCtx=signCanvas.getContext('2d');signCtx.fillStyle='#7650a0';signCtx.fillRect(0,0,768,120);signCtx.fillStyle='#fff1c8';signCtx.font='bold 48px Microsoft JhengHei, sans-serif';signCtx.textAlign='center';signCtx.fillText('節奏法師　｜　點餐・取餐',384,78);const signTex=new THREE.CanvasTexture(signCanvas);signTex.colorSpace=THREE.SRGBColorSpace;mesh(new THREE.PlaneGeometry(4.6,.72),new THREE.MeshBasicMaterial({map:signTex}),0,3.47,-2.79);
+// Open-air terrace visible beyond the counter.
+box(18,.12,5,mat('#d9d2b9'),0,1.0,-5.6);for(let x=-8;x<=8;x++)box(.012,.015,5,mat('#c1b99e'),x,1.07,-5.6);
+for(const x of [-4.8,4.8]){cyl(.72,.72,.1,mat('#fff0c7'),x,1.92,-5.0);cyl(.055,.07,.78,frameMat,x,1.49,-5);for(const dx of [-.9,.9]){box(.5,.1,.5,mat('#cf916b'),x+dx,1.45,-5);box(.5,.48,.07,mat('#cf916b'),x+dx,1.74,-5.22)}cyl(.4,.32,.6,mat('#df8c68'),x,1.4,-6.8);cyl(.07,.12,1.3,frameMat,x,2.15,-6.8);sphere(.83,mat('#67b94e'),x,3,-6.8);sphere(.59,mat('#95d75d'),x-.35,3.3,-6.7)}
+box(2,.12,.55,wood,-3.0,1.35,-2.47);for(let i=0;i<3;i++){cyl(.16,.18,.34,mat(['#ffc44f','#ff817b','#66c8a2'][i]),-3.55+i*.55,1.59,-2.4);cyl(.18,.18,.05,wood,-3.55+i*.55,1.78,-2.4)}
+const cookwareStart=scene.children.length;box(3.7,.3,3.2,cream,-.45,.22,.35);cyl(1.3,1.3,.13,black,-.45,.44,.35);const glow=mat('#e7a74b',.5);glow.emissive=new THREE.Color('#a85010');cyl(1.08,1.08,.1,glow,-.45,.53,.35);for(let i=0;i<2;i++)cyl(.11,.11,.1,edge,.7+i*.35,.42,1.7);
+const pan=new THREE.Group();pan.position.set(-.45,.7,.35);scene.add(pan);cyl(1.5,1.42,.22,iron,0,0,0,pan);cyl(1.42,1.42,.035,mat('#242a32',.8,.2),0,.13,0,pan);const rim=mesh(new THREE.TorusGeometry(1.46,.055,12,80),edge,0,.16,0,pan);rim.rotation.x=Math.PI/2;box(1.65,.19,.3,wood,2.1,.02,0,pan);box(.4,.15,.22,edge,1.5,.02,0,pan);
+const cookware=scene.children.slice(cookwareStart);const cookwareRest=cookware.map(o=>({position:o.position.clone(),scale:o.scale.clone()}));const egg=new THREE.Group();scene.add(egg);const shape=new THREE.Shape();for(let i=0;i<=96;i++){const a=i/96*Math.PI*2,r=.86*(1+.085*Math.sin(a*5)+.04*Math.cos(a*7));const x=Math.cos(a)*r,y=Math.sin(a)*r*.78;i?shape.lineTo(x,y):shape.moveTo(x,y)}const whiteMat=mat('#fff8e0',.42);const white=mesh(new THREE.ExtrudeGeometry(shape,{depth:.055,bevelEnabled:true,bevelThickness:.035,bevelSize:.035,bevelSegments:3,steps:1}),whiteMat,0,.04,0,egg);white.rotation.x=-Math.PI/2;
+const yolkMat=mat('#ffb20a',.24);sphere(.33,yolkMat,.06,.13,-.03,egg,1,.7,1);for(let i=0;i<13;i++){const a=i*2.4;const r=.72;sphere(.018,mat('#d9aa63'),Math.cos(a)*r,.085,Math.sin(a)*r*.73,egg,1,.3,1)}
+const mage=new THREE.Group();mage.position.set(2.6,.15,-.6);mage.scale.setScalar(.74);scene.add(mage);cyl(.27,.52,.78,purple,0,.48,0,mage);sphere(.33,skin,0,1.08,0,mage);const brim=cyl(.55,.55,.06,purple,0,1.3,0,mage);mesh(new THREE.ConeGeometry(.4,.85,32),purple,0,1.74,0,mage);sphere(.045,black,-.12,1.09,.3,mage);sphere(.045,black,.12,1.09,.3,mage);sphere(.1,mat('#e7a599'),-.23,.98,.22,mage,1,.4,.4);sphere(.1,mat('#e7a599'),.23,.98,.22,mage,1,.4,.4);sphere(.19,black,-.23,.05,.16,mage,1,.5,1.5);sphere(.19,black,.23,.05,.16,mage,1,.5,1.5);
+const arm=new THREE.Group();arm.position.set(-.3,.72,0);mage.add(arm);const sleeve=box(.48,.19,.2,purple,-.18,0,0,arm);const wand=box(.055,.75,.055,wood,-.45,.2,0,arm);const starMat=mat('#ffdc87',.2);starMat.emissive=new THREE.Color('#ad7928');const tip=mesh(new THREE.OctahedronGeometry(.14),starMat,-.45,.64,0,arm);
+const sparks=[];for(let i=0;i<12;i++){const s=mesh(new THREE.OctahedronGeometry(.045),starMat);s.visible=false;sparks.push(s)}
+let lastW=0,lastH=0,flipNumber=0,lastFlip=-100,landedRotation=0;
+const burn=[0,0],burnColors=['#fff8e0','#efbe77','#bd753a','#704126','#18130f'];
+const faceMaterials=[mat(burnColors[0],.56),mat(burnColors[0],.56)];faceMaterials.forEach(m=>m.side=THREE.DoubleSide);
+const faceTop=mesh(new THREE.ShapeGeometry(shape,48),faceMaterials[0],0,.132,0,egg);faceTop.rotation.x=-Math.PI/2;
+const faceBottom=mesh(new THREE.ShapeGeometry(shape,48),faceMaterials[1],0,.003,0,egg);faceBottom.rotation.x=-Math.PI/2;
+const scorchMaterials=[mat('#3e2415',1),mat('#3e2415',1)],scorch=[[],[]];
+for(let face=0;face<2;face++){for(let i=0;i<30;i++){const a=i*2.39996,r=.21+Math.sqrt((i+1)/30)*.52;const dot=sphere(.04+(i%4)*.012,scorchMaterials[face],Math.cos(a)*r,face===0?.136:-.002,Math.sin(a)*r*.74,egg,1,.06,.7);dot.visible=false;scorch[face].push(dot)}}
+// Each face keeps its own cooking history. Face 0 carries the yolk.
+function panFace(){return Math.cos(egg.rotation.x)>=0?1:0}
+function refreshBurn(){for(let f=0;f<2;f++){faceMaterials[f].color.set(burnColors[burn[f]]);scorch[f].forEach((dot,i)=>{dot.visible=burn[f]>0&&i<burn[f]*8})}yolkMat.color.set(['#ffb20a','#d59419','#9a5e1b','#56301a','#18130f'][burn[0]]);whiteMat.color.set(burnColors[Math.min(burn[0],burn[1])]);const label=null;if(label)label.textContent='貼鍋面 '+(panFace()===0?'A（蛋黃面）':'B（背面）')+' · 焦度 '+burn[panFace()]+'/4　｜　A '+burn[0]+'/4 · B '+burn[1]+'/4'}
+function burnPanFace(){const f=panFace();burn[f]=Math.min(4,burn[f]+1);refreshBurn();return (f===0?'蛋黃面':'背面')+(burn[f]===4?'已整面焦黑！':'焦度 '+burn[f]+'/4')}
+function resetEgg(){burn[0]=burn[1]=0;flipNumber=0;lastFlip=-100;landedRotation=-Math.PI;egg.rotation.x=0;refreshBurn()}
+
+
+const spreadFaults = {thin:0, excess:0, uneven:0};
+const spreadMessages = {thin:'醬量太少', excess:'醬量太多', uneven:'塗抹不均勻'};
+const spreadMissLimit = 4;
+function spreadDamage() {
+  // Empty presses affect sauce and taste, but only missed notes use a chance.
+  return Math.min(1, (spreadFaults.thin + spreadFaults.excess + spreadFaults.uneven) / spreadMissLimit);
+}
+function updateSpreadChances() {
+  const meter = $('spreadChances');
+  meter.hidden = level !== 2 || !['countdown','playing','paused'].includes(mode);
+  if (meter.hidden) return;
+  const used = Math.min(spreadMissLimit, stats.miss);
+  const label = '剩餘 MISS 機會 ' + (spreadMissLimit-used) + ' / ' + spreadMissLimit;
+  const status = $('spreadChanceText');
+  if (status.textContent !== label) status.textContent = label;
+  for (const [i, dot] of [...$('spreadChanceDots').children].entries()) {
+    dot.classList.toggle('used', i >= spreadMissLimit-used);
+  }
+}
+function spreadIssue() {
+  const issues = [];
+  if (spreadFaults.thin && spreadFaults.excess) issues.push('各處醬量不一');
+  else if (spreadFaults.thin) issues.push(spreadMessages.thin);
+  else if (spreadFaults.excess) issues.push(spreadMessages.excess);
+  if (spreadFaults.uneven) issues.push(spreadMessages.uneven);
+  return issues.join(' · ') || '醬量適中 · 塗抹均勻';
+}
+function spreadMistake(kind) {
+  spreadFaults[kind]++;
+  return spreadMessages[kind];
+}
+const faults=[0,0,0],faultNames=['切菜','翻炒','擺盤'];let lastLane=0;
+const chopping=new THREE.Group(),wokStation=new THREE.Group(),plating=new THREE.Group();scene.add(chopping,wokStation,plating);
+const boardMat=mat('#eab576'),green=mat('#9dcf5c'),pale=mat('#d8ed96'),carrot=mat('#fa9340'),roughMat=mat('#6e9b42');
+box(3.5,.15,2.3,boardMat,0,.14,0,chopping);
+const cucumber=new THREE.Group();chopping.add(cucumber);const leaves=[],strips=[];
+const peel=mat('#268344',.5),flesh=mat('#d3ec94',.48),seedMat=mat('#f3f6c5');
+function cucumberPiece(parent,x,y,z,thickness,flat=false){const piece=new THREE.Group();piece.position.set(x,y,z);parent.add(piece);const skinPiece=cyl(.3,.3,thickness,peel,0,0,0,piece);const inner=cyl(.25,.25,thickness+.006,flesh,0,0,0,piece);for(let side of [-1,1])for(let n=0;n<5;n++){let a=n/5*Math.PI*2;const seed=sphere(.035,seedMat,Math.sin(a)*.12,side*(thickness/2+.008),Math.cos(a)*.12,piece,.55,.15,1.3)}if(!flat)piece.rotation.z=Math.PI/2;return piece}
+for(let i=0;i<8;i++)leaves.push(cucumberPiece(cucumber,-1.08+i*.245,.52,-.15,.24));
+for(let i=0;i<8;i++){const piece=cucumberPiece(chopping,-1.12+(i%4)*.55,.25+Math.floor(i/4)*.07,.55+Math.floor(i/4)*.42,.075,true);piece.rotation.x=.1*(i%2);strips.push(piece)}
+const chunks=[];for(let i=0;i<8;i++){const o=cucumberPiece(chopping,.8+(i%2)*.32,.32+Math.floor(i/4)*.18,.55+Math.floor(i/2)%2*.3,.21,true);o.rotation.z=(i%2?1:-1)*.35;chunks.push(o)}
+const knife=new THREE.Group();chopping.add(knife);
+const blade=box(.09,.72,1.2,mat('#f2f7ff',.6,.08),0,.38,0,knife);
+const outline=new THREE.LineSegments(new THREE.EdgesGeometry(blade.geometry),new THREE.LineBasicMaterial({color:'#506b80'}));blade.add(outline);
+box(.085,.035,1.05,mat('#fbffff',.2,.3),0,.02,0,knife);
+box(.15,.16,.55,mat('#b65c36'),0,.56,-.67,knife);
+for(let z of [-.52,-.76])sphere(.027,mat('#f8d7a7'),.08,.56,z,knife);
+knife.rotation.y=-1.06;
+const pattyStation=new THREE.Group();scene.add(pattyStation);pattyStation.position.set(1.65,0,.35);pattyStation.scale.setScalar(.68);
+box(3.7,.3,3.2,cream,0,.22,0,pattyStation);cyl(1.3,1.3,.13,black,0,.44,0,pattyStation);cyl(1.08,1.08,.1,glow,0,.53,0,pattyStation);
+for(let i=0;i<2;i++)cyl(.11,.11,.1,edge,.9+i*.35,.42,1.35,pattyStation);
+const meatPan=pan.clone(true);meatPan.position.set(0,.7,0);pattyStation.add(meatPan);
+const patty=new THREE.Group();pattyStation.add(patty);const meatMat=mat('#a96139',.9);cyl(.8,.77,.2,meatMat,0,0,0,patty);
+const meatFace=[mat('#bd7a49',.85),mat('#bd7a49',.85)];const meatBurn=[0,0];
+for(let side=0;side<2;side++){cyl(.77,.77,.008,meatFace[side],0,side===0?.105:-.105,0,patty);for(let j=-2;j<=2;j++)box(1.18,.009,.045,mat('#6a3b23'),0,side===0?.112:-.112,j*.22,patty)}
+let meatStamp=-100,meatTurns=0;
+function meatPanFace(){return Math.cos(patty.rotation.x)>=0?1:0}
+function burnMeat(){const face=meatPanFace();meatBurn[face]=Math.min(4,meatBurn[face]+1);return '肉餅 '+(face===0?'A':'B')+' 面 '+(meatBurn[face]===4?'整面焦黑！':'焦度 '+meatBurn[face]+'/4')}
+const wokPan=new THREE.Group();wokStation.add(wokPan);cyl(1.5,1.18,.33,iron,0,.43,0,wokPan);cyl(1.4,1.4,.03,mat('#30323b'),0,.6,0,wokPan);box(1.35,.16,.25,wood,1.9,.5,0,wokPan);box(3.3,.22,2.8,cream,0,.15,0,wokStation);
+const veg=[];for(let i=0;i<76;i++){const group=new THREE.Group();wokStation.add(group);const color=['#34cc34','#65e342','#159e3c','#92e85a','#ff922e'][i%5],material=mat(color,.55);const leaf=sphere(.19,material,0,0,0,group,1,.18,1.6);if(i%5!==4){box(.025,.015,.33,mat('#b7f274'),0,.035,0,group)}else{leaf.scale.set(1,.25,.55)}group.userData={material,color};veg.push(group)}
+const spatula=new THREE.Group();wokStation.add(spatula);const spatulaBlade=box(.65,.065,.48,mat('#dceaf0',.35,.5),0,0,0,spatula);box(.11,.12,1.45,mat('#d88947'),0,.16,.9,spatula);box(.12,.1,.26,edge,0,.07,.34,spatula);for(let i=-1;i<=1;i++)box(.045,.008,.26,mat('#728593'),i*.16,.037,0,spatula);
+function stirPose(p){const keys=[[0,.82,.94],[.28,.1,.73],[.58,-.25,1.06],[.8,.1,1.28],[1,.82,.94]];let k=1;while(k<keys.length-1&&p>keys[k][0])k++;const A=keys[k-1],B=keys[k],u=(p-A[0])/(B[0]-A[0]);return {z:A[1]+(B[1]-A[1])*u,y:A[2]+(B[2]-A[2])*u}}
+const smokeMat=new THREE.MeshStandardMaterial({color:'#68616c',transparent:true,opacity:.28,depthWrite:false});const smoke=[];for(let i=0;i<7;i++)smoke.push(sphere(.14,smokeMat,0,1,0,wokStation));
+cyl(1.55,1.44,.1,mat('#b6d9e9'),0,.25,0,plating);cyl(1.43,1.43,.04,mat('#fff9ec'),0,.32,0,plating);
+// Four recognisable courses, arranged as one composed hamburger steak plate.
+const plated=[];
+function plateGroup(x,y,z){const p=new THREE.Group();p.position.set(x,y,z);plating.add(p);plated.push(p);return p}
+const steakDish=plateGroup(-.47,.53,-.17);
+const steakFood=cyl(.61,.56,.28,mat('#ad4b20',.78),0,0,0,steakDish);steakFood.scale.z=.82;
+const steakCrust=cyl(.57,.57,.025,mat('#d67b32',.63),0,.149,0,steakDish);steakCrust.scale.z=.82;
+for(let k=-2;k<=2;k++){const grill=box(.78,.012,.035,mat('#663018'),0,.17,k*.14,steakDish);grill.rotation.y=-.23}
+for(let k=0;k<16;k++){let a=k*2.4; sphere(.02,mat(k%2?'#753219':'#f0ab57'),Math.cos(a)*.49,.166,Math.sin(a)*.35,steakDish,1,.3,1)}
+const platedEgg=plateGroup(.48,.38,.55);const eggOutline=new THREE.Shape();for(let i=0;i<=64;i++){const a=i/64*Math.PI*2,r=.45*(1+.065*Math.sin(a*5));i?eggOutline.lineTo(Math.cos(a)*r,Math.sin(a)*r*.77):eggOutline.moveTo(Math.cos(a)*r,Math.sin(a)*r*.77)}const eggWhite=mesh(new THREE.ExtrudeGeometry(eggOutline,{depth:.035,bevelEnabled:true,bevelThickness:.015,bevelSize:.02,bevelSegments:2,steps:1}),mat('#fff9e8',.4),0,0,0,platedEgg);eggWhite.rotation.x=-Math.PI/2;sphere(.18,mat('#ffb900',.22),.015,.085,0,platedEgg,1,.58,1);sphere(.043,mat('#fff0a0',.2),.06,.17,.01,platedEgg,1,.22,.6);
+const platedVeg=plateGroup(.57,.39,-.64);
+const broc=mat('#299b39'),brocLight=mat('#65c83c'),stem=mat('#97d452');
+for(let i=0;i<3;i++){const x=(i-1)*.22,z=i===1?-.1:.08;cyl(.055,.085,.15,stem,x,.065,z,platedVeg);for(let j=0;j<5;j++){let a=j/5*Math.PI*2;sphere(.09,j%2?broc:brocLight,x+Math.cos(a)*.065,.17+(j===0?.035:0),z+Math.sin(a)*.06,platedVeg)}}
+for(let i=0;i<3;i++){let carrotSlice=cyl(.1,.1,.055,mat('#ff8729'),-.17+i*.16,.045,.33,platedVeg);carrotSlice.rotation.z=.15}
+sphere(.12,mat('#f44f39',.32),.3,.105,.21,platedVeg);for(let i=0;i<3;i++){const leaf=box(.13,.012,.028,mat('#318c35'),.3,.22,.21,platedVeg);leaf.rotation.y=i*Math.PI/3}
+const platedSauce=plateGroup(-.47,.71,-.17);const sauceMat=mat('#b64415',.23);const sauceParts=[];
+for(let i=0;i<36;i++){const a=i/36,b=(i+1)/36;const point=t=>new THREE.Vector3(-.43+t*.86,.01,Math.sin(t*Math.PI*5)*.25);const curve=new THREE.LineCurve3(point(a),point(b));sauceParts.push(mesh(new THREE.TubeGeometry(curve,2,.026,7,false),sauceMat,0,0,0,platedSauce))}
+const sauceStream=cyl(.014,.02,.55,sauceMat,0,.29,0,platedSauce);sauceStream.visible=false;
+const plateOrigins=plated.map(o=>o.position.clone());
+// Thin coral rim plus three deliberate herb accents, outside the food.
+const plateRim=mesh(new THREE.TorusGeometry(1.44,.025,10,80),mat('#f0784d'),0,.35,0,plating);plateRim.rotation.x=Math.PI/2;
+const spills=[];for(let i=0;i<12;i++){const a=i*2.4;const o=sphere(.07,mat('#b64415',.25),Math.cos(a)*1.19,.35,Math.sin(a)*1.09,plating,1,.09,.7);spills.push(o)}
+function resetKitchen3D(){resetEgg();faults.fill(0);spreadFaults.thin=spreadFaults.excess=spreadFaults.uneven=0;meatBurn.fill(0);meatStamp=-100;meatTurns=0;patty.rotation.x=0;lastLane=0}
+function kitchenMiss(lane,note){if(level===2)return spreadMistake(note?.kind==='hold'?'thin':'uneven');let message;if(level===4&&lane===1){message=burnMeat()}else if(level===0||(level===4&&lane===0)){message=burnPanFace()}else{const index=level===1?0:2;faults[index]=Math.min(4,faults[index]+1);message=[['切得不均勻','留下更多粗塊','菜絲變得凌亂','小黃瓜切得太厚了！'],['開始焦黃','食材燒焦了','焦塊越來越多','整鍋焦黑！'],['配料放歪了','料理滑出位置','醬汁灑出來了','擺盤一團亂！']][index][faults[index]-1]}updateQuality();return '跟上下一拍！'}
+function updateQuality(){$('stageTask').textContent=''}
+function allRuined(){if(level===2)return stats.miss>=spreadMissLimit;if(level===0)return burn.every(n=>n>=4);if(level===4)return burn.every(n=>n>=4)&&meatBurn.every(n=>n>=4);return faults[level===1?0:2]>=4}
+function drawActivities(t){const isEgg=level===0||level===4;egg.visible=isEgg;for(const o of cookware)o.visible=isEgg;chopping.visible=level===1;pattyStation.visible=level===4;wokStation.visible=level===2;plating.visible=level===3;toastStation.visible=level===2;wokStation.visible=false;drawBreakfast(t);
+for(let i=0;i<cookware.length;i++){const o=cookware[i],r=cookwareRest[i];if(o===pan)continue;if(level===4){o.scale.copy(r.scale).multiplyScalar(.68);o.position.set(-1.65+(r.position.x+.45)*.68,r.position.y*.68,.35+(r.position.z-.35)*.68)}else{o.scale.copy(r.scale);o.position.copy(r.position)}}
+if(level===4){pan.scale.setScalar(.68);pan.position.set(-1.65,pan.position.y*.68,.35);pan.rotation.y=Math.PI;egg.scale.setScalar(.68);egg.position.set(-1.65,egg.position.y*.68,.35);mage.position.set(3,.15,-1.8);mage.scale.setScalar(.55)}else{pan.scale.setScalar(1);pan.rotation.y=0;pan.position.x=-.45;egg.scale.setScalar(1);egg.position.x=-.45;mage.position.set(2.6,.15,-.6);mage.scale.setScalar(.74)}
+chopping.position.set(-.25,0,.35);chopping.scale.setScalar(1);
+const age=t-anim[0],chopP=age>=0&&age<.25?Math.sin(age/.25*Math.PI):0,step=chops%8,complete=chops>0&&step===0&&age<.32;
+leaves.forEach((o,i)=>o.visible=!complete&&i>=step);strips.forEach((o,i)=>o.visible=i<(complete?8:step));chunks.forEach((o,i)=>o.visible=i<faults[0]*2);
+knife.position.set(-1.2+step*.245,.98-chopP*.76,.02);knife.rotation.z=-.05*chopP;
+if(anim[1]!==meatStamp){meatStamp=anim[1];if(meatStamp>-90)meatTurns++}const ma=t-meatStamp,mp=Math.max(0,Math.min(1,ma/.5)),activeMeat=ma>=0&&ma<.5,mu=activeMeat?Math.sin(mp*Math.PI):0;
+patty.position.set(0,1.02+mu*1.7,0);patty.rotation.x=meatTurns>0?(meatTurns-1+(activeMeat?mp:1))*Math.PI:0;meatPan.rotation.z=-mu*.12;
+for(let f=0;f<2;f++)meatFace[f].color.set(['#bd7a49','#a96532','#7e4525','#49291c','#17120f'][meatBurn[f]]);
+const age0=t-anim[0],p=age0>=0&&age0<.21?age0/.21:1,arc=Math.sin(p*Math.PI);wokStation.position.set(-.45,0,.35);wokPan.rotation.z=-arc*.09;const pose=stirPose(p);spatula.position.set(Math.sin(p*Math.PI*2)*.28,pose.y,pose.z);spatula.rotation.set(-.2-arc*.35,Math.sin(p*Math.PI*2)*.22,arc*.12);const burnt=['','#a39535','#79612a','#493620','#191710'];veg.forEach((v,i)=>{const angle=i*2.39996,r=Math.sqrt((i+.5)/76)*1.13;const selected=(i+stirs)%3!==0;const local=Math.max(0,Math.min(1,(p-.18-(i%3)*.035)/.78));const lift=selected?Math.sin(local*Math.PI):0;v.position.set(Math.cos(angle)*r+Math.sin(p*Math.PI*2+i)*arc*.12,.73+(i%4)*.045+lift*(.35+(i%5)*.15),Math.sin(angle)*r+arc*.12*Math.cos(i));v.rotation.set(i*.7+lift*2.8,angle+arc*.6,lift*.9);v.userData.material.color.set(faults[1]?burnt[faults[1]]:v.userData.color)});smoke.forEach((o,i)=>{o.visible=faults[1]>=2;const phase=(t*.45+i/7)%1;o.position.set(Math.sin(i*4)*.65,.8+phase*1.8,Math.cos(i*4)*.5);o.scale.setScalar(.5+phase) });
+plating.position.set(-.45,0,.35);const ps=plates%4,count=mode==='home'?(plates>0&&ps===0?4:ps):platingStep;plated.forEach((o,i)=>{o.visible=i<count;const drift=faults[2]*.095;o.position.copy(plateOrigins[i]);if(i<3){o.position.x+=Math.sin(i*7+1)*drift;o.position.z+=Math.cos(i*3)*drift;o.rotation.z=faults[2]*.055*(i%2?1:-1);if(i===count-1&&age0>=0&&age0<.18)o.position.y+=Math.pow(1-age0/.18,2)*.65}});
+// Sauce follows the steak, including its mistake displacement, rather than floating on the plate.
+platedSauce.position.copy(steakDish.position);platedSauce.position.y+=.18;platedSauce.rotation.copy(steakDish.rotation);
+const pour=count===4?(mode==='home'?Math.max(0,Math.min(1,age0/.28)):saucePour):0;sauceParts.forEach((o,i)=>o.visible=i<Math.ceil(pour*36));sauceStream.visible=count===4&&(mode==='home'?age0>=0&&age0<.28:!!activeHold&&activeHold.action==='sauce');sauceStream.position.set(-.43+pour*.86,.29,Math.sin(pour*Math.PI*5)*.25);
+spills.forEach((o,i)=>o.visible=i<faults[2]*3);updateQuality()}
+
+function draw(t){const w=c.clientWidth,h=c.clientHeight;if(w!==lastW||h!==lastH){lastW=w;lastH=h;renderer.setSize(w,h,false);camera.aspect=w/Math.max(1,h);camera.updateProjectionMatrix()}
+camera.position.set(5.5,7.3,Math.max(10,12/camera.aspect));camera.lookAt(0,1.1,0);
+const stamp=level===4?anim[0]:flipAt;if(stamp!==lastFlip){lastFlip=stamp;if(stamp>-90){flipNumber++;landedRotation=(flipNumber-1)*Math.PI}}
+const elapsed=t-stamp,p=Math.max(0,Math.min(1,elapsed/.55)),active=elapsed>=0&&elapsed<.55,arc=active?Math.sin(p*Math.PI):0;
+egg.position.set(-.45,.94+arc*2,.35);egg.rotation.x=landedRotation+(active?p:1)*Math.PI;egg.rotation.z=active?Math.sin(p*Math.PI*2)*.12:0;pan.rotation.z=active?-.13*Math.sin(p*Math.PI):0;pan.position.y=.7+arc*.12;arm.rotation.z=arc*.35;mage.position.y=.15+Math.sin(t*2)*.015;tip.rotation.y=t;refreshBurn();
+sparks.forEach((s,i)=>{s.visible=active;const a=i/12*Math.PI*2;s.position.set(-.45+Math.cos(a)*(p*1.5+.3),1+Math.sin(a)*.3+arc*.8,.35+Math.sin(a)*(p*1.1+.3));s.scale.setScalar(1-p);s.rotation.x=t*3+i});drawActivities(t);renderer.render(scene,camera)}
+
+function noise(at,dur=.055,amp=.2){const b=ac.createBuffer(1,Math.ceil(ac.sampleRate*dur),ac.sampleRate),v=b.getChannelData(0);for(let i=0;i<v.length;i++)v[i]=(Math.random()*2-1)*Math.pow(1-i/v.length,3);const s=ac.createBufferSource();s.buffer=b;const gain=ac.createGain();gain.gain.value=amp;s.connect(gain);gain.connect(master.effects);s.start(at);scheduled.push(s);s.onended=()=>{s.disconnect();gain.disconnect();scheduled=scheduled.filter(x=>x!==s)}}
+function impact(lane){if(level===2)return;const at=ac.currentTime;if(level===1){noise(at,.045,.4);tone(at,240,.04,.18,'triangle',90)}else if(level===3){tone(at,1400,.06,.14,'sine');tone(at+.04,2100,.045,.08)}else{noise(at,.09,.15);tone(at,440,.045,.1,'triangle');tone(at+(level===2?.24:.43),160,.09,.24,'triangle',60)}}
+function audio(){
+  if(!ac){
+    const AudioEngine=window.AudioContext||window.webkitAudioContext;
+    ac=new AudioEngine({latencyHint:'interactive'});
+    master=ac.createGain();master.gain.value=volume;
+    musicBus=ac.createGain();musicBus.gain.value=.79;musicBus.connect(master);
+    const effects=ac.createGain();effects.gain.value=.32;
+    effects.connect(master);master.connect(ac.destination);
+    master.effects=effects;
+  }
+  return ac.state==='running'?Promise.resolve():ac.resume();
+}
+function tone(at,freq,dur,amp,type='sine',end){const o=ac.createOscillator(),v=ac.createGain();o.type=type;o.frequency.setValueAtTime(freq,at);if(end)o.frequency.exponentialRampToValueAtTime(end,at+dur);v.gain.setValueAtTime(amp,at);v.gain.exponentialRampToValueAtTime(.001,at+dur);o.connect(v);v.connect(master.effects);o.start(at);o.stop(at+dur);scheduled.push(o);o.onended=()=>{o.disconnect();v.disconnect();scheduled=scheduled.filter(n=>n!==o)}}
+function silence(){stopPreview();for(const o of [...scheduled]){try{o.stop()}catch{}}scheduled=[]}
+
+function playbackClock() {
+  if (level !== 2) return ac.currentTime;
+  const stamp = ac.getOutputTimestamp?.();
+  if (stamp?.contextTime > 0 && stamp.performanceTime > 0) {
+    return Math.min(ac.currentTime, stamp.contextTime + (performance.now()-stamp.performanceTime)/1000);
+  }
+  return ac.currentTime - (ac.outputLatency || ac.baseLatency || 0);
+}
+function time(){return mode==='playing'?playbackClock()-origin:held}
+function build(){notes=[];const end=levels[level].bars*4-4;const add=(b,key='KeyJ',len=0)=>notes.push({t:b*beat,key,lane:key==='KeyK'?1:0,kind:len?'hold':'tap',end:(b+len)*beat,done:false});for(let b=4;b<end;b+=8){if(level===0){for(const o of [0,2,3,4,6,7])add(b+o,'KeyJ');if(b>=20){add(b+4.5,'KeyJ');add(b+5,'KeyK')}}if(level===1){for(let i=0;i<12;i++)add(b+i*.5,i%2?'KeyK':'KeyJ');add(b+6,'KeyJ');if(b>=20){add(b+7,'KeyJ');add(b+7,'KeyK')}}if(level===2){add(b,'KeyJ',2);add(b+1,'KeyK');add(b+2.5,'KeyK');add(b+3,'KeyJ');add(b+4,'KeyK',1.5);add(b+4.5,'KeyJ');add(b+6,'KeyJ');add(b+6.5,'KeyK');add(b+7,'KeyJ')}if(level===3){for(const shift of [0,4]){add(b+shift,'KeyJ');notes[notes.length-1].action='meat';add(b+shift+.5,'KeyK');notes[notes.length-1].action='egg';add(b+shift+1,'KeyJ');notes[notes.length-1].action='veg';add(b+shift+2,'KeyK',1.5);notes[notes.length-1].action='sauce'}}if(level===4){add(b,'KeyJ',1.5);add(b+.5,'KeyK');add(b+1,'KeyK');add(b+2,'KeyJ');add(b+2,'KeyK');add(b+3,'KeyJ');add(b+4,'KeyK',1.5);add(b+4.5,'KeyJ');add(b+5,'KeyJ');add(b+6,'KeyJ');add(b+6,'KeyK');add(b+7,'KeyJ');if(b>=28){add(b+7.5,'KeyJ');add(b+7.5,'KeyK')}}}notes=notes.filter(n=>n.t<end*beat);notes.sort((a,b)=>a.t-b.t||a.lane-b.lane);return notes}
+function say(title,sub){$('judge').innerHTML='<strong>'+title+'</strong><small>'+sub+'</small>';$('judge').classList.remove('flash');void $('judge').offsetWidth;$('judge').classList.add('flash');lastJudge=performance.now()/1000}
+async function start(){if(mode==='starting')return;silence();mode='starting';for(const d of document.querySelectorAll('dialog'))d.close();try{await audio();currentTrack()}catch{mode='home';alert('無法啟動聲音，請使用 Chrome 或 Edge 開啟。');return}silence();resetKitchen3D();resetOrders();chops=plates=stirs=0;anim=[-100,-100];build();updateTask();stats={perfect:0,good:0,miss:0,extra:0,max:0,score:0};combo=0;held=0;flipAt=-100;particles=[];$('app').classList.add('play');$('gameUI').hidden=false;countdown(0);updateHud()}
+function countdown(t){
+  silence();
+  held=t;
+  mode='countdown';
+  const now=ac.currentTime+.055;
+  resumeAt=now+beat*3;
+  origin=resumeAt-t;
+  for(let i=0;i<3;i++)tone(now+i*beat,440+i*110,.12,.37);
+  playTrack(resumeAt,t);
+  $('count').textContent='3';
+  $('count').hidden=false;
+}
+function resumeGame(){
+  audio().then(()=>{if(mode==='paused')countdown(held);}).catch(()=>$('pauseDialog').showModal());
+}
+function updateHud(){$('score').textContent=String(stats.score).padStart(6,'0');$('combo').textContent=combo}
+function awardTap(lane=0,completedHold=null){if(mode!=='playing')return;const t=time()-offset;let n=completedHold||notes.filter(n=>!n.done&&n.lane===lane).reduce((a,b)=>!a||Math.abs(b.t-t)<Math.abs(a.t-t)?b:a,null);if(n&&(completedHold||Math.abs(n.t-t)<=.17)){n.done=true;const perfect=completedHold?n.holdPerfect:Math.abs(n.t-t)<=.085;stats[perfect?'perfect':'good']++;combo++;stats.max=Math.max(stats.max,combo);stats.score+=perfect?1000:600;lastLane=lane;flipGood=true;flipAt=time();anim[level===4?(lane===1?1:0):0]=time();if(level===1)chops++;if(level===2)stirs++;if(level===3){plates++;platingStep={meat:1,egg:2,veg:3,sauce:4}[n.action]||plates%4;if(n.action==='meat')saucePour=0;if(n.action==='sauce')saucePour=1;}for(let i=0;i<9;i++)particles.push({t:flipAt,x:level===4?(lane===0?427:749):604,y:440,vx:(Math.random()-.5)*220,vy:-Math.random()*130});impact(lane);completeAction();say(perfect?'PERFECT':'GOOD',combo+' 連擊 · '+(level===1?(chops%8===0?'一條切完！':chops%8+' / 8 刀'):level===3?(plates%4===0?'完成一盤！':plates%4+' / 4 擺盤'):level===2?(spreadDamage()?spreadIssue():n.kind==='hold'?'這一筆抹好了！':'跟上拍點！'):level===4&&lane===1?'肉餅翻面！':'漂亮翻面！'));updateTask()}else{stats.extra++;combo=0;tone(ac.currentTime,110,.07,.12,'triangle');say('再抓一下拍點',n&&t<n.t?'等音符到判定圈':'每個音符只按一次')}updateHud()}
+function pause(open=true){if(mode!=='playing'&&mode!=='countdown')return;clearTouchKeys();if(activeHold){failHold(level===2);if(mode==='serving')return}held=time();mode='paused';silence();$('count').hidden=true;if(open)$('pauseDialog').showModal()}
+function home(){clearTouchKeys();$('app').classList.remove('serving-view');silence();mode='home';$('app').classList.remove('play');$('gameUI').hidden=true;$('count').hidden=true;for(const d of document.querySelectorAll('dialog'))d.close();flipGood=true;flipAt=-100;menuWasPlaying=false;selectLevel(level)}
+function finishResult(ruined=false){$('app').classList.remove('serving-view');activeHold=null;if(mode==='result')return;held=time();mode='result';silence();const a=Math.round((stats.perfect+stats.good*.6)/(notes.length+stats.extra)*100),pass=!ruined&&a>=60;if(pass){completed[level]=Math.max(completed[level]||0,a);try{localStorage.setItem('kitchen-completed',JSON.stringify(completed))}catch{}}$('accuracy').textContent=a+'%';$('resultTitle').textContent=ruined?(level===2?'抹醬失敗，重新挑戰！':level===1||level===3?'料理失敗，重新挑戰！':'全部焦黑了，重新挑戰！'):pass?(level===4?'雙手主廚，挑戰完成！':'這道料理，完成了！'):'再練一回，找到你的節奏。';$('resultLabel').textContent=ruined?'本局已結束 · 分數 '+stats.score:(stats.miss===0&&stats.extra===0?'FULL COMBO · ':pass?'通關 · ':'60% 即可通關 · ')+'分數 '+stats.score;$('rPerfect').textContent=stats.perfect;$('rGood').textContent=stats.good;$('rMiss').textContent=level===2?stats.miss:stats.miss+stats.extra;$('rMissLabel').textContent=level===2?'MISS':'MISS / 空按';$('rMissLabel').title=level===2?'空按 '+stats.extra+' 次，另計為醬量過多':'';$('rCombo').textContent=stats.max;$('nextLevel').hidden=!pass||level===4;$('resultLabel').textContent+=' · 已出餐 '+served+' 份 · 客人評價 '+reactions[receiptMood]+(level===2?' · '+spreadIssue():'');$('resultDialog').showModal()}
+function frame(){let now=sceneClock();if(mode==='home'&&now-flipAt>(level===1?.48:level===3?.6:2)){flipAt=now;anim=[now,now];flipGood=true;if(level===1||level===4)chops++;if(level===3)plates++;}if(mode==='countdown'){const d=resumeAt-playbackClock();$('count').textContent=Math.max(1,Math.ceil(d/beat));if(d<=0){mode='playing';$('count').hidden=true;say('READY',level===4?'J 上軌翻蛋 · K 下軌煎肉餅':'跟著音樂，音符到圈時按 J 或 K')}}if(mode==='playing'){const t=time();updateHold();if(mode==='playing')for(const n of notes){if(!n.done&&!n.started&&t-offset>n.t+.17){n.done=true;stats.miss++;combo=0;flipGood=false;say('MISS',kitchenMiss(n.lane,n));updateHud();if(allRuined()){finish(true);break}}}$('progress').style.width=Math.min(100,t/duration*100)+'%';$('remaining').textContent=Math.max(0,Math.ceil(duration-t))+' 秒';if(mode==='playing'&&t>=duration+.25)finish()}updateOrderUI();updateSpreadChances();if(mode!=='home'){const t=time(),w=$('rail').clientWidth;let html=['',''];for(const n of notes){const x=91+(n.t-t+offset)*(w-110)/2.4;if(!n.done&&(x>-32||n.started)&&x<w+32)html[n.lane]+='<i class="note '+((n.kind==='hold'?'hold-note ':'')+(n.key==='Space'?'space-note':''))+'" style="left:'+(Math.max(n.started?91:-100,x)-(level===4?13.5:16))+'px;width:'+(n.kind==='hold'?Math.max(32,32+(n.end-t+offset)*(w-110)/2.4-Math.max(0,x-91)):32)+'px"><span>'+keyLabel(n.key)+'</span></i>'}$('notes').innerHTML=html[0];$('notes2').innerHTML=html[1]}draw(sceneClock());requestAnimationFrame(frame)}
+$('nextLevel').onclick=()=>{selectLevel(Math.min(4,level+1));start()};$('start').onclick=start;$('again').onclick=start;$('pause').onclick=()=>pause();$('resume').onclick=()=>{$('pauseDialog').close();resumeGame()};for(const id of ['quit','resultHome','menuHome'])$(id).onclick=home;
+$('menu').onclick=()=>{if(mode==='serving')return;menuWasPlaying=mode==='playing'||mode==='countdown';if(menuWasPlaying)pause(false);if(mode==='serving'){menuWasPlaying=false;return}$('menuDialog').showModal()};function closeMenu(){$('menuDialog').close();if(menuWasPlaying){menuWasPlaying=false;resumeGame()}}$('closeMenu').onclick=closeMenu;$('menuReturn').onclick=closeMenu;$('menuDialog').addEventListener('cancel',e=>{e.preventDefault();closeMenu()});for(const id of ['pauseDialog','resultDialog'])$(id).addEventListener('cancel',e=>{e.preventDefault();if(id==='pauseDialog'){$('pauseDialog').close();resumeGame()}else home()});document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-tab]').forEach(x=>x.classList.toggle('active',x===b));for(const id of ['about','how','settings','levels'])$(id).hidden=id!==b.dataset.tab});$('volume').oninput=e=>{volume=e.target.value/100;if(master)master.gain.value=volume};$('offset').oninput=e=>{offset=e.target.value/1000;$('offsetText').textContent=(offset>0?'+':'')+e.target.value+' ms'};
+window.addEventListener('keydown',e=>{if(document.querySelector('dialog[open]')||e.target.matches('input')||(['Space','Enter'].includes(e.code)&&e.target.matches('button')))return;if(['Space','KeyJ','KeyK','Escape','Enter'].includes(e.code))e.preventDefault();if(e.repeat)return;if(e.code==='KeyJ'&&mode==='home'){start();return}if(['KeyJ','KeyK'].includes(e.code))hit(e.code);if(e.code==='Escape')pause()});window.addEventListener('blur',()=>pause());document.addEventListener('visibilitychange',()=>{if(document.hidden)pause()});document.querySelector('#about').innerHTML='<div style="font-size:42px">✦ 🍳</div><h3>從一顆蛋，到一桌料理。</h3><p>五關沿用同一間小廚房。你掌握拍點，小法師幫忙施法。從穩定翻蛋、快速切菜，到切分翻炒、短連打擺盤，最後同時照顧兩項料理。</p><p>每關準確度達 60% 即可前進；也能直接選關。Miss 會累積料理失敗：焦蛋、粗菜塊、焦蔬菜與歪斜擺盤。全部料理焦黑會立即結束；切菜與擺盤達最嚴重失敗狀態也會結束。重新挑戰會重置。需使用支援 WebGL 2 的瀏覽器。</p>';
+document.querySelector('#how').innerHTML='<div class="instruction"><span class="icon">◉</span><p><b>01 看準拍點</b>音符由右向左，到達判定圈時按鍵。</p></div><div class="instruction"><span class="icon">⌨</span><p><b>02 前四關用 SPACE 或 J</b>每次命中，翻蛋、切一刀、翻炒或擺盤一次。</p></div><div class="instruction"><span class="icon">Ⅱ</span><p><b>03 第五關改用 J / K</b>J 控制上軌翻蛋；K 控制下軌煎肉餅。兩軌音符同時到圈時，兩鍵一起按。</p></div><p class="small-note">Perfect ±85ms · Good ±170ms。空按中斷連擊並計入失誤。Esc 暫停；切換視窗會自動暫停。小黃瓜每成功八刀完成一條。漏拍會留下粗菜塊；煎蛋每面四次漏拍會焦黑。</p>';
+document.querySelector('#pauseDialog h2').textContent='先把火關小一點。';$('resume').innerHTML='繼續料理 <span>↗</span>';document.querySelector('canvas').setAttribute('aria-label','節奏小廚房，包含煎蛋、切菜、翻炒、擺盤和雙線料理動畫');const customers=[{name:'趕上課的學生',face:'🧑‍🎓',color:'#6c96dc'},{name:'上班途中的客人',face:'👩‍💼',color:'#e78b85'},{name:'晨跑回來的鄰居',face:'🏃',color:'#8fbd65'}];
+const dishes=['太陽荷包蛋','清爽小黃瓜配菜','奶油抹醬吐司','漢堡排早餐','煎蛋漢堡肉雙拼'];
+let served=0,orderProgress=0,activeHold=null,toastSpread=0,deliveryUntil=0,saucePour=0,platingStep=0;
+function resetOrders(){receiptStart=-1;receiptTray.visible=false;receiptRuined=false;receiptToast.scale.setScalar(1);receiptEgg.scale.setScalar(.21);receiptMeat.scale.setScalar(1);served=0;orderProgress=0;activeHold=null;toastSpread=0;deliveryUntil=0;saucePour=0;platingStep=0}
+function completeAction(){orderProgress++;const quota=Math.max(1,Math.ceil(notes.length/3));if(orderProgress>=quota){served++;orderProgress=0;deliveryUntil=performance.now()+1200}}
+function updateOrderUI(){if(mode==='serving'){$('orderTitle').textContent=performance.now()/1000-receiptStart>=reactionAt?reactions[receiptMood]:'客人試吃中';$('orderDetail').textContent=dishes[level];$('orderFill').style.width='100%';return}const person=customers[served%customers.length],preview=mode==='home';$('customerFace').textContent=person.face;$('orderTitle').textContent=performance.now()<deliveryUntil?'出餐成功！下一位客人 →':person.name+' · '+dishes[level];$('orderDetail').textContent=preview?'用節奏魔法完成訂單，準備好就開始！':'製作中 · 已出餐 '+served+' 份';$('orderFill').style.width=(orderProgress/Math.max(1,Math.ceil(notes.length/3))*100)+'%'}
+function hit(key='KeyJ'){if(mode!=='playing')return;if(activeHold&&activeHold.key===key)return;const t=time()-offset;const n=notes.filter(n=>!n.done&&!n.started&&n.key===key).reduce((a,b)=>!a||Math.abs(b.t-t)<Math.abs(a.t-t)?b:a,null);if(!n||Math.abs(n.t-t)>.135){stats.extra++;combo=0;tone(ac.currentTime,100,.045,.1,'triangle');say('WRONG / EARLY',level===2?spreadMistake('excess'):'照音符上的按鍵操作');updateHud();return}n.holdPerfect=Math.abs(n.t-t)<=.065;if(n.kind==='hold'){if(activeHold)return;n.started=true;activeHold=n;toastSpread=0;if(n.action==='sauce'){platingStep=4;saucePour=0;}anim[level===4?(n.lane===1?1:0):0]=time();say('HOLD','按住 '+keyLabel(key)+' 到長條尾端')}else awardTap(n.lane,n)}
+function failHold(endGame=true){if(!activeHold)return;const n=activeHold;if(level===2)toastSpread=Math.max(0,Math.min(1,(time()-offset-n.t)/(n.end-n.t)));n.done=true;n.started=false;activeHold=null;stats.miss++;combo=0;say('MISS',kitchenMiss(n.lane,n));updateHud();if(endGame&&allRuined())finish(true)}
+function updateHold(){if(!activeHold)return;const n=activeHold,t=time()-offset;toastSpread=Math.min(1,Math.max(0,(t-n.t)/(n.end-n.t)));if(n.action==='sauce')saucePour=toastSpread;if(t>=n.end){activeHold=null;n.started=false;awardTap(n.lane,n);toastSpread=1}}
+function release(key) {
+  if (mode !== 'playing' || !activeHold || key !== activeHold.key) return;
+  if (time()-offset < activeHold.end-.07) return failHold();
+  const note=activeHold;
+  activeHold=null;
+  note.started=false;
+  awardTap(note.lane,note);
+  toastSpread=1;
+}
+window.addEventListener('keyup', e => release(e.code));
+
+const touchKeys = [...document.querySelectorAll('.touch-key')];
+const touchPointers = new Map();
+function clearTouchKeys() {
+  for (const [pointer,button] of touchPointers) {
+    touchPointers.delete(pointer);
+    button.classList.remove('is-pressed');
+    if (button.hasPointerCapture(pointer)) button.releasePointerCapture(pointer);
+  }
+}
+for (const button of touchKeys) {
+  button.addEventListener('contextmenu', e => e.preventDefault());
+  button.addEventListener('pointerdown', e => {
+    if (e.button !== 0) return;
+    e.preventDefault();
+    if (mode !== 'playing' || touchPointers.has(e.pointerId) || button.classList.contains('is-pressed')) return;
+    touchPointers.set(e.pointerId,button);
+    button.classList.add('is-pressed');
+    button.setPointerCapture(e.pointerId);
+    hit(button.dataset.key);
+  });
+  const endTouch = e => {
+    if (touchPointers.get(e.pointerId) !== button) return;
+    touchPointers.delete(e.pointerId);
+    button.classList.remove('is-pressed');
+    release(button.dataset.key);
+  };
+  button.addEventListener('pointerup',endTouch);
+  button.addEventListener('pointercancel',endTouch);
+  button.addEventListener('lostpointercapture',endTouch);
+  button.addEventListener('click', e => {
+    if (e.detail !== 0 || mode !== 'playing') return;
+    hit(button.dataset.key);
+    release(button.dataset.key);
+  });
+}
+const toastStation=new THREE.Group();scene.add(toastStation);toastStation.position.set(-.45,0,.35);box(3.4,.16,2.6,boardMat,0,.13,0,toastStation);box(1.65,.2,1.65,mat('#bb713b'),0,.32,0,toastStation);const toastTop=box(1.49,.03,1.49,mat('#ffe2a1'),0,.44,0,toastStation);
+const spreadMat=mat('#ffbf51',.38);
+function makeSpread(parent) {
+  return Array.from({length:18}, () => box(1,1,1,spreadMat,0,0,0,parent));
+}
+function updateSpreadMesh(strips, progress, size, y, rise=1, depth=size) {
+  const thin = 1-Math.min(.82, spreadFaults.thin*.18);
+  const thick = Math.min(4, spreadFaults.excess)*.012;
+  const uneven = Math.min(4, spreadFaults.uneven);
+  for (const [i,strip] of strips.entries()) {
+    const irregular = Math.sin(i*2.43);
+    const gap = uneven && i%Math.max(2,6-uneven)===2%Math.max(2,6-uneven);
+    const height = (.026*thin+thick*(1+.48*irregular))*rise;
+    strip.visible = i < Math.floor(progress*thin*strips.length) && !gap;
+    strip.scale.set(size*(.91-uneven*.075*(1+irregular)),height,depth*.053);
+    strip.position.set(size*irregular*uneven*.023,y+height/2,depth*((i+.5)/strips.length-.5));
+  }
+}
+const spreadBands=makeSpread(toastStation);const butterKnife=new THREE.Group();toastStation.add(butterKnife);box(.17,.05,.65,mat('#e6edf4',.4,.4),0,0,0,butterKnife);box(.16,.1,.6,mat('#9a61ca'),0,.05,.57,butterKnife);const butterDish=cyl(.3,.26,.1,mat('#edab68'),1.25,.22,0,toastStation);sphere(.17,spreadMat,1.25,.32,0,toastStation,1,.4,1);
+const buyer=new THREE.Group();scene.add(buyer);buyer.position.set(-.3,1.45,-3.95);const shirt=mat(customers[0].color);cyl(.31,.4,.67,shirt,0,.6,0,buyer);sphere(.25,skin,0,1.12,0,buyer);sphere(.26,black,0,1.26,-.06,buyer,1,.5,1);box(.35,.2,.03,cream,0,.65,.37,buyer);
+function drawBreakfast(t){toastStation.visible=level===2;buyer.visible=true;shirt.color.set(customers[served%3].color);buyer.position.y=1.45+(mode==='serving'?0:Math.sin(t*2)*.015);drawServing();if(level!==2)return;const preview=mode==='home',progress=preview?(Math.sin(t*1.5)+1)/2:toastSpread;updateSpreadMesh(spreadBands,progress,1.44,.455);butterKnife.position.set(Math.sin(progress*Math.PI*8)*.5,.55,-.65+progress*1.3);butterKnife.rotation.y=-.25}
+
+function keyLabel(key){return key==='KeyK'?'K':'J'}
+const reactions = ['美味', '好吃', '普通', '難吃', '嘔吐'];
+const servingCameraPosition = new THREE.Vector3();
+const servingCameraTarget = new THREE.Vector3();
+const servingTarget = new THREE.Vector3();
+const servingEase = (value) => {
+  const p = Math.max(0, Math.min(1, value));
+  return p * p * (3 - 2 * p);
+};
+const reactionAt = 3.45;
+const servingEnd = 5.55;
+let receiptStart = -1, receiptMood = 0, receiptBurn = 0, receiptRuined = false;
+
+function mealDamage() {
+  if (level === 0) return (burn[0] + burn[1]) / 8;
+  if (level === 4) return (burn[0] + burn[1] + meatBurn[0] + meatBurn[1]) / 16;
+  if (level === 2) return spreadDamage();
+  return faults[level === 1 ? 0 : 2] / 4;
+}
+
+function finish(ruined = false) {
+  if (mode === 'result' || mode === 'serving') return;
+  held = time();
+  activeHold = null;
+  silence();
+  mode = 'serving';
+  clearTouchKeys();
+  receiptRuined = ruined;
+  receiptBurn = mealDamage();
+  receiptMood = Math.min(4, Math.round(receiptBurn * 4));
+  receiptStart = performance.now() / 1000;
+  prepareReceipt();
+  $('app').classList.add('serving-view');
+}
+
+const receiptTray = new THREE.Group();
+scene.add(receiptTray);
+receiptTray.visible = false;
+box(.92, .045, .52, mat('#b87855'), 0, 0, 0, receiptTray);
+const receiptPlate = cyl(.34, .33, .032, cream, 0, .042, 0, receiptTray);
+receiptPlate.scale.z = .71;
+
+const receiptEgg = egg.clone(true);
+receiptEgg.scale.setScalar(.21);
+receiptTray.add(receiptEgg);
+const receiptMeat = cyl(.15, .14, .072, mat('#b87541'), .13, .095, -.035, receiptTray);
+const receiptToast = box(.36, .07, .26, mat('#edbb71'), -.05, .10, -.015, receiptTray);
+const receiptSpread = makeSpread(receiptToast);
+const receiptGreen = Array.from({length: 5}, (_, i) => {
+  const slice = cyl(.062, .065, .018, mat('#76c74b'), -.16 + i * .07, .082 + (i % 2) * .011, .10 - (i % 2) * .08, receiptTray);
+  cyl(.048, .048, .003, mat('#c9e79b'), 0, .01, 0, slice);
+  return slice;
+});
+
+const eyeInk = new THREE.MeshBasicMaterial({color: '#36223b'});
+const eyeLight = new THREE.MeshBasicMaterial({color: '#fff4be'});
+const eyeGold = new THREE.MeshBasicMaterial({color: '#ffcf56'});
+const eyeDull = new THREE.MeshBasicMaterial({color: '#827382'});
+const eyeBlue = new THREE.MeshBasicMaterial({color: '#45bbfa'});
+const tearLight = new THREE.MeshBasicMaterial({color: '#d5f7ff'});
+const eyeWhite = new THREE.MeshBasicMaterial({color: '#f7edf1'});
+
+function faceOrb(parent, material, x, y, z, rx, ry, rz = .012) {
+  const orb = sphere(1, material, x, y, z, parent, rx, ry, rz);
+  orb.castShadow = false;
+  orb.receiveShadow = false;
+  return orb;
+}
+function eyeArc(parent, material, x0, x1, height, curve, radius) {
+  const path = new THREE.QuadraticBezierCurve3(
+    new THREE.Vector3(x0, height, 0),
+    new THREE.Vector3((x0 + x1) / 2, height + curve, .006),
+    new THREE.Vector3(x1, height, 0)
+  );
+  const arc = mesh(new THREE.TubeGeometry(path, 14, radius, 8, false), material, 0, 0, 0, parent);
+  arc.castShadow = arc.receiveShadow = false;
+}
+const starShape = new THREE.Shape();
+for (let i = 0; i < 8; i++) {
+  const a = Math.PI / 2 + i * Math.PI / 4, radius = i % 2 ? .015 : .041;
+  const x = Math.cos(a) * radius, y = Math.sin(a) * radius;
+  if (i === 0) starShape.moveTo(x, y); else starShape.lineTo(x, y);
+}
+starShape.closePath();
+const starGeometry = new THREE.ShapeGeometry(starShape);
+const guestEyes = [-1, 1].map((side) => {
+  const eye = new THREE.Group();
+  eye.position.set(side * .096, 1.145, .238);
+  buyer.add(eye);
+  const looks = reactions.map(() => {
+    const look = new THREE.Group();
+    eye.add(look);
+    return look;
+  });
+  faceOrb(looks[0], eyeInk, 0, 0, 0, .055, .062);
+  const star = mesh(starGeometry, eyeGold, 0, 0, .018, looks[0]);
+  star.castShadow = star.receiveShadow = false;
+  faceOrb(looks[0], eyeLight, -.009, .009, .021, .013, .013, .002);
+  eyeArc(looks[1], eyeInk, -.041, .041, -.016, .071, .009);
+  faceOrb(looks[2], eyeInk, 0, 0, .006, .020, .024);
+  faceOrb(looks[3], eyeWhite, 0, -.004, 0, .048, .031);
+  faceOrb(looks[3], eyeDull, 0, -.009, .012, .015, .018, .006);
+  eyeArc(looks[3], eyeInk, -.048, .048, .019, -.018, .007);
+  eyeArc(looks[4], eyeInk, -.045, .045, .012, -.059, .009);
+  const tears = [.0, .49].map((offset) => {
+    const drop = new THREE.Group();
+    looks[4].add(drop);
+    faceOrb(drop, eyeBlue, 0, 0, 0, .019, .031);
+    faceOrb(drop, tearLight, -.005, .007, .01, .004, .010, .003);
+    return {drop, offset};
+  });
+  return {looks, star, tears, side};
+});
+
+const biteMouth = faceOrb(buyer, eyeInk, 0, 1.042, .243, .042, .021, .012);
+const insideMouth = faceOrb(buyer, new THREE.MeshBasicMaterial({color:'#be6272'}), 0, 1.032, .252, .025, .008, .005);
+const utensil = new THREE.Group();
+buyer.add(utensil);
+sphere(.055, skin, 0, 0, 0, utensil, 1, .9, .85);
+box(.019, .018, .16, edge, 0, 0, -.065, utensil);
+box(.058, .014, .025, edge, 0, 0, -.155, utensil);
+for (const x of [-.021, 0, .021]) box(.01, .012, .051, edge, x, 0, -.185, utensil);
+const biteMaterial = mat('#ffdc82');
+const biteFood = box(.083, .047, .064, biteMaterial, 0, .027, -.19, utensil);
+const forearm = cyl(.048, .062, 1, shirt, 0, 0, 0, buyer);
+const otherHand = sphere(.057, skin, -.25, .75, .62, buyer);
+const shoulder = new THREE.Vector3(.255, .83, .075);
+const armVector = new THREE.Vector3();
+const armUp = new THREE.Vector3(0, 1, 0);
+const biteFrom = new THREE.Vector3(.19, .75, .76);
+const biteTo = new THREE.Vector3(0, 1.022, .44);
+const biteRest = new THREE.Vector3(.25, .72, .61);
+
+function prepareReceipt() {
+  receiptTray.visible = true;
+  receiptEgg.visible = [0, 3, 4].includes(level);
+  receiptEgg.position.set(level === 0 ? 0 : -.11, .084, -.015);
+  receiptEgg.rotation.x = burn[0] > burn[1] ? 0 : Math.PI;
+  receiptMeat.visible = level === 3 || level === 4;
+  receiptMeat.material.color.set(['#b87541','#9c5d2e','#774329','#49291c','#17120f'][level === 4 ? Math.max(...meatBurn) : faults[2]]);
+  receiptToast.visible = level === 2;
+  if (level === 2) updateSpreadMesh(receiptSpread, Math.max(toastSpread, stirs ? .78 : .18), .32, .035, .42, .234);
+  for (const slice of receiptGreen) {
+    slice.visible = level === 1 || level === 3;
+    slice.material.color.set(faults[0] >= 2 ? '#7c9348' : '#76c74b');
+  }
+  biteMaterial.color.set(level === 2 ? (spreadFaults.excess ? '#ffc850' : '#edbb71') : receiptBurn >= .875 ? '#30211f' : [receiptBurn >= .5 ? '#bc894c' : '#ffe2a1', '#91ba57', '#d79550', '#a66542', '#a66542'][level]);
+}
+
+function drawServing() {
+  const active = mode === 'serving';
+  const elapsed = active ? performance.now() / 1000 - receiptStart : 0;
+  const reacting = active && elapsed >= reactionAt;
+  const mood = reacting ? receiptMood : 2;
+  const reactionTime = Math.max(0, elapsed - reactionAt);
+  const biteAge = elapsed < 2.13 ? elapsed - 1.05 : elapsed - 2.13;
+  const eating = active && elapsed >= 1.05 && elapsed < 3.27;
+  const lifting = servingEase((biteAge - .12) / .40);
+  const lowering = servingEase((biteAge - .57) / .38);
+  const mouthOpen = eating ? Math.max(
+    servingEase((biteAge - .32) / .16) * (1 - servingEase((biteAge - .51) / .10)),
+    biteAge >= .59 && biteAge <= .99 ? Math.abs(Math.sin((biteAge - .59) * Math.PI * 8)) * .56 : 0
+  ) : 0;
+  biteMouth.visible = insideMouth.visible = mouthOpen > .025;
+  biteMouth.scale.y = .008 + mouthOpen * .027;
+  insideMouth.scale.y = .004 + mouthOpen * .009;
+  for (const {looks, star, tears, side} of guestEyes) {
+    looks.forEach((look, i) => { look.visible = i === mood; });
+    star.scale.setScalar(1 + .16 * Math.sin(reactionTime * 9 + side));
+    for (const {drop, offset} of tears) {
+      const fall = (reactionTime * 1.68 + offset) % 1;
+      drop.position.set(side * (.024 + fall * .033), -.028 - fall * .115, .014 + fall * .012);
+      drop.scale.setScalar(1 - fall * .35);
+    }
+  }
+  receiptTray.visible = utensil.visible = forearm.visible = otherHand.visible = active;
+  buyer.rotation.z = reacting && mood === 4 ? Math.sin(reactionTime * 21) * .032 : 0;
+  if (!active) return;
+
+  const arriving = servingEase(elapsed / .95);
+  receiptTray.position.set(-.30, 1.35 + arriving * .78, -2.12 - arriving * 1.16);
+  receiptTray.rotation.x = -.055 * Math.sin(Math.PI * arriving);
+  utensil.position.copy(biteRest);
+  if (eating) {
+    utensil.position.lerp(biteFrom, servingEase(biteAge / .12));
+    utensil.position.lerp(biteTo, lifting).lerp(biteRest, lowering);
+  }
+  utensil.rotation.x = eating ? .16 * (1 - lifting) : .30;
+  biteFood.visible = eating && biteAge >= .11 && biteAge < .515;
+  if (level === 1) receiptGreen[4].visible = elapsed < 1.57;
+  if (level === 1) receiptGreen[3].visible = elapsed < 2.65;
+  if (level === 2) receiptToast.scale.x = elapsed < 1.57 ? 1 : elapsed < 2.65 ? .79 : .58;
+  if (level === 0) receiptEgg.scale.setScalar(elapsed < 1.57 ? .21 : elapsed < 2.65 ? .18 : .15);
+  if (level >= 3) receiptMeat.scale.setScalar(elapsed < 1.57 ? 1 : elapsed < 2.65 ? .83 : .69);
+  armVector.subVectors(utensil.position, shoulder);
+  forearm.position.copy(shoulder).addScaledVector(armVector, .5);
+  forearm.scale.y = armVector.length();
+  forearm.quaternion.setFromUnitVectors(armUp, armVector.normalize());
+
+  const zoom = servingEase(elapsed / .92);
+  servingTarget.set(-.30, 2.43, -3.69);
+  servingCameraPosition.set(-.30, 2.45, -3.69 + Math.max(1.68, 1.61 / camera.aspect));
+  servingCameraTarget.set(0, 1.1, 0).lerp(servingTarget, zoom);
+  camera.position.lerp(servingCameraPosition, zoom);
+  camera.lookAt(servingCameraTarget);
+  if (elapsed >= servingEnd) {
+    served++;
+    finishResult(receiptRuined);
+  }
+}
+
+window.kitchen3D={scene,renderer,getState:()=>({mode,level,spreadFaults:{...spreadFaults},burn:[...burn],meatBurn:[...meatBurn],faults:[...faults],stats,chops,plates}),miss:kitchenMiss,reset:resetKitchen3D,select:selectLevel,start,hit,sync:()=>{origin=playbackClock()-notes.find(n=>!n.done).t}};document.querySelector('#about').innerHTML='<h3>歡迎光臨，魔法早餐店！</h3><p>每天，不同的客人帶著早餐訂單上門。你是店裡的節奏法師，必須跟著音樂施法，切菜、煎蛋、抹醬、擺盤，快速完成熱騰騰的早餐。</p><p>每個章節有連續上門的顧客。成功操作累積製作進度，完成後自動出餐並接下一張訂單。料理全部失敗就打烊重來。第三關看醬量和塗抹均勻度。</p>';document.querySelector('#how').innerHTML='<h3>魔力操作</h3><p>煎蛋、切菜、擺盤：短按 J。<br>吐司抹醬：長條到圈時按住該軌按鍵，持續到尾端再放開。提前放開算失誤。<br>雙鍋挑戰：J 翻蛋，K 翻肉餅；同時到拍就一起按。<br>Esc 暫停。暫停會取消正在進行的抹醬，避免按鍵卡住。</p>';[112,132,140,150,164].forEach((b,i)=>levels[i].bpm=b);levels[0].title='早餐開張！';levels[0].name='魔法煎蛋';levels[0].hint='J 短按翻蛋';levels[1].hint='J 短按切片';levels[2].hint='長音開始按住，聽到高音放開';levels[2].desc='跟著吉他 J 與電鋼琴 K 抹醬。長音持續時按住，聽到尾端高音再放開。';levels[2].action='開始抹醬';levels[4].title='尖峰時刻！';document.querySelector('#how').innerHTML='<h3>跟著音符施法</h3><p>␣＝空白鍵，J／K＝左右手。每條軌道只對應一個按鍵：J 軌、K 軌、SPACE 軌。按其他鍵不會命中。漢堡排餐依序短按 J 放肉、K 放蛋、J 放菜，再長按空白鍵淋醬。<br>圓音符：短按。長條：按住指定鍵直到尾端，可同時按另一鍵。兩個音符重疊到圈時，兩鍵一起按。<br>第一關以空白鍵為主，後續加入 J／K 交替、長短混合與同步雙鍵。F 不再使用。Esc 暫停會取消長按。</p>';document.querySelector('#how').innerHTML='<h3>只用 J／K 施法</h3><p>J 對應 J 軌、K 對應 K 軌。圓音符短按，長條按住到尾端，兩軌同時到拍就一起按。長按一鍵時可用另一鍵短按。<br>吐司抹醬：吉他對應 J，電鋼琴對應 K。聽到長音尾端的高音就可以放開。漏掉長按或提早放開會讓醬太少，漏掉短按會塗得不均，空按會讓醬太多。累計第 4 次 MISS 時結束。<br>漢堡排餐：J 放肉 → K 放蛋 → J 放菜 → 長按 K 淋醬。<br>手機用畫面下方的 J／K。長條請按住，雙軌同拍可用兩指一起按。<br>首頁按開始或 J；Esc 或暫停鍵可暫停。</p>';$('songPreview').onclick=togglePreview;$('songDownload').onclick=downloadSoundtrack;window.addEventListener('blur',stopPreview);document.addEventListener('visibilitychange',()=>{if(document.hidden)stopPreview()});selectLevel(0);requestAnimationFrame(frame);
+
+}
+const loadPanel=document.getElementById('startup'),loadTitle=document.getElementById('startupTitle'),loadText=document.getElementById('startupMessage'),retryButton=document.getElementById('retryLoad');
+let loadingEngine=false,kitchenStarted=false;
+function loadEngine(url){return new Promise((resolve,reject)=>{const s=document.createElement('script');let settled=false;const end=(ok)=>{if(settled)return;settled=true;clearTimeout(timer);s.onload=s.onerror=null;if(!ok)s.remove();ok?resolve():reject(new Error('引擎下載失敗'))};const timer=setTimeout(()=>end(false),7000);s.src=url;s.onload=()=>end(!!window.THREE);s.onerror=()=>end(false);document.head.appendChild(s)})}
+async function launchKitchen(){if(loadingEngine||kitchenStarted)return;loadingEngine=true;retryButton.hidden=true;loadTitle.textContent='正在開啟 3D 小廚房';if(!window.THREE){loadText.textContent='正在載入 3D 引擎…';try{await loadEngine('assets/three-min.js')}catch{}}
+if(!window.THREE){loadTitle.textContent='3D 引擎沒有載入成功';loadText.textContent='請確認 assets/three-min.js 與 index.html 一起上傳，再重新載入。';retryButton.hidden=false;loadingEngine=false;return}
+try{bootKitchen();kitchenStarted=true;loadPanel.hidden=true}catch(e){loadTitle.textContent='啟動時發生問題';loadText.textContent=e.message;retryButton.textContent='重新開啟';retryButton.onclick=()=>location.reload();retryButton.hidden=false}loadingEngine=false}
+retryButton.onclick=launchKitchen;launchKitchen();
+</script></body></html>
